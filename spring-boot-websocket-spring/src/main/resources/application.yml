@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  # 文件编码 UTF8
+  mandatory-file-encoding: UTF-8
+  mvc:
+    # 解决Springfox路径匹配问题
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+  freemarker:
+    check-template-location: false
+
+knife4j:
+  # 开启增强配置
+  enable: true
+  # 开启生产环境屏蔽
+  production: false
+
+websocket:
+  # 是否开启
+  enable: true
+  # 是否启用拦截器
+  intercept: true
