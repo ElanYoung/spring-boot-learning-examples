@@ -56,7 +56,7 @@ public class ResponseVO<T> {
     }
 
     public static <T> ResponseVO<T> error() {
-        return new ResponseVO<T>(Code.FAIL.getCode(), Code.SUCCESS.getDescription(), null);
+        return new ResponseVO<T>(Code.FAIL.getCode(), Code.FAIL.getDescription(), null);
     }
 
     public static <T> ResponseVO<T> error(String message) {
@@ -64,7 +64,7 @@ public class ResponseVO<T> {
     }
 
     public static <T> ResponseVO<T> error(T data) {
-        return new ResponseVO<T>(Code.FAIL.getCode(), Code.SUCCESS.getDescription(), data);
+        return new ResponseVO<T>(Code.FAIL.getCode(), Code.FAIL.getDescription(), data);
     }
 
     public static <T> ResponseVO<T> error(String message, T data) {
