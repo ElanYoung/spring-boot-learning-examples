@@ -1,0 +1,85 @@
+server:
+  port: 8080
+
+spring:
+  # 文件编码 UTF8
+  mandatory-file-encoding: UTF-8
+  mvc:
+    # 解决Springfox路径匹配问题
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+  freemarker:
+    check-template-location: false
+  # 数据源配置
+  datasource:
+    name: quartz
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/quartz?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF8&rewriteBatchedStatements=true
+    username: "root"
+    password: "88888888"
+    druid:
+      # 开启监控页面
+      stat-view-servlet:
+        # 监控页面访问账号
+        login-username: admin
+        # 监控页面访问密码
+        login-password: 123456
+        enabled: true
+      # 用于采集 web-jdbc 关联监控的数据
+      web-stat-filter:
+        enabled: true
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      # 监控统计拦截
+      filters: stat,wall
+  quartz:
+    # 任务存储类型
+    job-store-type: "jdbc"
+    # 关闭时等待任务完成
+    wait-for-jobs-to-complete-on-shutdown: false
+    # 是否覆盖已有的任务
+    overwrite-existing-jobs: true
+    # 是否自动启动计划程序
+    auto-startup: true
+    # 延迟启动
+    startup-delay: 0s
+    jdbc:
+      # 数据库架构初始化模式（never：从不进行初始化；always：每次都清空数据库进行初始化；embedded：只初始化内存数据库（默认值））
+      initialize-schema: "never"
+    # 相关属性配置
+    properties:
+      org:
+        quartz:
+          scheduler:
+            # 调度器实例名称
+            instanceName: QuartzScheduler
+            # 分布式节点ID自动生成
+            instanceId: AUTO
+          jobStore:
+            class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            # 表前缀
+            tablePrefix: QRTZ_
+            # 是否开启集群
+            isClustered: true
+            # 数据源别名（自定义）
+            dataSource: quartz
+            # 分布式节点有效性检查时间间隔（毫秒）
+            clusterCheckinInterval: 10000
+            useProperties: false
+          # 线程池配置
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+
+knife4j:
+  # 开启增强配置
+  enable: true
+  # 开启生产环境屏蔽
+  production: false
