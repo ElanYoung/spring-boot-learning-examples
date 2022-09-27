@@ -1,0 +1,38 @@
+# 主配置文件
+
+server:
+  # 服务端口
+  port: 8080
+
+spring:
+  # 文件编码 UTF8
+  mandatory-file-encoding: UTF-8
+  mvc:
+    # 解决Springfox路径匹配问题
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+  freemarker:
+    check-template-location: false
+
+knife4j:
+  # 开启增强配置
+  enable: true
+  # 开启生产环境屏蔽
+  production: false
+
+# MinIO配置
+minio:
+  # 服务地址
+  endpoint: http://127.0.0.1:9000
+  # 文件预览地址
+  preview: http://127.0.0.1:9000
+  # 存储桶名称
+  bucket: spring-boot-learning-examples
+  # 用户名
+  access-key: minioadmin
+  # 密码
+  secret-key: minioadmin
