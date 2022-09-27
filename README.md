@@ -56,6 +56,21 @@ git clone https://github.com/ElanYoung/spring-boot-learning-examples.git
 - Sample Code（Spring）：[spring-boot-websocket-spring](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-spring)
 - Reference Article：[Spring Boot 集成 WebSocket（原生注解与Spring封装）](https://blog.csdn.net/qq991658923/article/details/127022522)
 
+### Spring Boot JWT
+
+- Sample Code：[spring-boot-jwt](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-jwt)
+- Reference Article：[Spring Boot 集成 JWT](https://blog.csdn.net/qq991658923/article/details/127027528)
+
+### Spring Boot MinIO
+
+- Sample Code：[spring-boot-minio](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-minio)
+- Reference Article：[Spring Boot 集成 MinIO](https://blog.csdn.net/qq991658923/article/details/124623495)
+
+### Spring Boot Quartz
+
+- Sample Code：[spring-boot-quartz](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-quartz)
+- Reference Article：[Spring Boot 集成 Quartz](https://blog.csdn.net/qq991658923/article/details/127078993)
+
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/ElanYoung/spring-boot-learning-examples.svg)](https://starchart.cc/ElanYoung/spring-boot-learning-examples)

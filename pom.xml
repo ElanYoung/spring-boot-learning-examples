@@ -7,6 +7,9 @@
         <module>spring-boot-base-core</module>
         <module>spring-boot-websocket-native</module>
         <module>spring-boot-websocket-spring</module>
+        <module>spring-boot-minio</module>
+        <module>spring-boot-jwt</module>
+        <module>spring-boot-quartz</module>
     </modules>
 
     <groupId>com.starimmortal</groupId>
@@ -35,6 +38,11 @@
                 <version>2.7.3</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.30</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
