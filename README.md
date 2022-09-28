@@ -50,6 +50,11 @@ git clone https://github.com/ElanYoung/spring-boot-learning-examples.git
 
 ## Learning Examples
 
+### Spring Boot Banner
+
+- Sample Code：[spring-boot-banner](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-banner)
+- Reference Article：[Spring Boot 自定义 Banner](https://blog.csdn.net/qq991658923/article/details/121302050)
+
 ### Spring Boot WebSocket
 
 - Sample Code（Native）：[spring-boot-websocket-native](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-native)
