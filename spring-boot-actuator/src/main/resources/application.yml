@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      # 自定义管理端点路径
+      base-path: /manage
+      # 自定义端点
+      exposure:
+        include: "info,health,env,beans"
+        # 启动所有端点
+        # include: "*"
