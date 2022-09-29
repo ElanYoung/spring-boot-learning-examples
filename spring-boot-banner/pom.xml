@@ -12,7 +12,7 @@
     <artifactId>spring-boot-banner</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>spring-boot-banner</name>
-    <description>spring-boot-banner</description>
+    <description>Spring Boot 自定义 Banner</description>
 
     <properties>
         <java.version>1.8</java.version>
