@@ -55,6 +55,11 @@ git clone https://github.com/ElanYoung/spring-boot-learning-examples.git
 - Sample Code：[spring-boot-banner](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-banner)
 - Reference Article：[Spring Boot 自定义 Banner](https://blog.csdn.net/qq991658923/article/details/121302050)
 
+### Spring Boot Actuator
+
+- Sample Code：[spring-boot-actuator](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-actuator)
+- Reference Article：[Spring Boot 集成 Actuator 监控工具](https://blog.csdn.net/qq991658923/article/details/127112107)
+
 ### Spring Boot WebSocket
 
 - Sample Code（Native）：[spring-boot-websocket-native](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-native)
