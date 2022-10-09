@@ -1,0 +1,18 @@
+server:
+  8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jasypt?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF8
+    username: "root"
+    password: StarImmortal(IV7SyeQOfG4GhiXeGLboVgOLPDO+dJMDoOdmEOQp3KyVjruI+dKKeehsTriWPKbo)
+
+jasypt:
+  encryptor:
+    # 配置加密密钥
+    password: StarImmortal
+    # 配置密文前后缀
+    property:
+      prefix: StarImmortal(
+      suffix: )
