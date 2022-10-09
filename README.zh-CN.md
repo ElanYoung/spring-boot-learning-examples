@@ -59,6 +59,16 @@ git clone https://github.com/ElanYoung/spring-boot-learning-examples.git
 - 示例代码：[spring-boot-actuator](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-actuator)
 - 参考文章：[Spring Boot 集成 Actuator 监控工具](https://blog.csdn.net/qq991658923/article/details/127112107)
 
+### Spring Boot 集成 Druid 连接池
+
+- 示例代码：[spring-boot-druid](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-druid)
+- 参考文章：[Spring Boot 集成 Druid 连接池](https://blog.csdn.net/qq991658923/article/details/127112527)
+
+### Spring Boot 集成 jasypt 实现敏感信息加密
+
+- 示例代码：[spring-boot-jasypt](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-jasypt)
+- 参考文章：[Spring Boot 集成 jasypt 实现敏感信息加密](https://blog.csdn.net/qq991658923/article/details/127112431)
+
 ### Spring Boot 集成 WebSocket
 
 - 示例代码（原生）：[spring-boot-websocket-native](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-native)

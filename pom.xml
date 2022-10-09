@@ -7,6 +7,8 @@
         <module>spring-boot-base-core</module>
         <module>spring-boot-banner</module>
         <module>spring-boot-actuator</module>
+        <module>spring-boot-druid</module>
+        <module>spring-boot-jasypt</module>
         <module>spring-boot-websocket-native</module>
         <module>spring-boot-websocket-spring</module>
         <module>spring-boot-minio</module>
