@@ -14,6 +14,7 @@
         <module>spring-boot-minio</module>
         <module>spring-boot-jwt</module>
         <module>spring-boot-quartz</module>
+        <module>spring-boot-easy-excel</module>
     </modules>
 
     <groupId>com.starimmortal</groupId>

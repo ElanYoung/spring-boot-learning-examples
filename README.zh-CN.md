@@ -90,6 +90,11 @@ git clone https://github.com/ElanYoung/spring-boot-learning-examples.git
 - 示例代码：[spring-boot-quartz](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-quartz)
 - 参考文章：[Spring Boot 集成 Quartz](https://blog.csdn.net/qq991658923/article/details/127078993)
 
+### Spring Boot 集成 EasyExcel
+
+- 示例代码：[spring-boot-easy-excel](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-easy-excel)
+- 参考文章：[Spring Boot 集成 EasyExcel](https://blog.csdn.net/qq991658923/article/details/128153012)
+
 ## 项目趋势
 
 [![Stargazers over time](https://starchart.cc/ElanYoung/spring-boot-learning-examples.svg)](https://starchart.cc/ElanYoung/spring-boot-learning-examples)

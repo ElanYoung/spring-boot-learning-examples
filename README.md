@@ -91,6 +91,11 @@ git clone https://github.com/ElanYoung/spring-boot-learning-examples.git
 - Sample Code：[spring-boot-quartz](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-quartz)
 - Reference Article：[Spring Boot 集成 Quartz](https://blog.csdn.net/qq991658923/article/details/127078993)
 
+### Spring Boot EasyExcel
+
+- Sample Code：[spring-boot-easy-excel](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-easy-excel)
+- Reference Article：[Spring Boot 集成 EasyExcel](https://blog.csdn.net/qq991658923/article/details/128153012)
+
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/ElanYoung/spring-boot-learning-examples.svg)](https://starchart.cc/ElanYoung/spring-boot-learning-examples)
