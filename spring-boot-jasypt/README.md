@@ -2,9 +2,9 @@
 
 ## 介绍
 
->jasypt 是一个开源的 Java 加密库，可以用来加密敏感信息，比如数据库密码、配置文件中的密码等。它提供了强大的加密算法，比如 AES、DES、PBE 等，可以满足大部分的加密需求。
-> 
->[官网仓库](https://github.com/ulisesbocchio/jasypt-spring-boot)
+> jasypt 是一个开源的 Java 加密库，可以用来加密敏感信息，比如数据库密码、配置文件中的密码等。它提供了强大的加密算法，比如 AES、DES、PBE 等，可以满足大部分的加密需求。
+
+[官方仓库](https://github.com/ulisesbocchio/jasypt-spring-boot)
 
 ## 引入依赖
 

@@ -13,7 +13,7 @@
 
 ### 自定义处理器
 
->处理器作用类似于`@RequestMapping`注解，用于处理某一个路径的`WebSocket`连接，自定义处理器需要实现`WebSocketHandler`接口。
+> 处理器作用类似于`@RequestMapping`注解，用于处理某一个路径的`WebSocket`连接，自定义处理器需要实现`WebSocketHandler`接口。
 
 #### WebSocket操作类
 
@@ -291,7 +291,7 @@ public class DefaultWebSocketHandler implements WebSocketHandler {
 
 ### 自定义拦截器
 
->自定义处理器需要实现`HandshakeInterceptor`接口
+> 自定义处理器需要实现`HandshakeInterceptor`接口
 
 ```java
 public class WebSocketInterceptor implements HandshakeInterceptor {
@@ -316,11 +316,11 @@ public class WebSocketInterceptor implements HandshakeInterceptor {
 }
 ```
 
->WebSocket 无法使用 header 传递参数，因此这里使用 url params 携带参数。
+> WebSocket 无法使用 header 传递参数，因此这里使用 url params 携带参数。
 
 ### WebSocket配置项
 
->将自定义处理器、拦截器以及WebSocket操作类依次注入到IOC容器中。
+> 将自定义处理器、拦截器以及WebSocket操作类依次注入到IOC容器中。
 
 ```java
 @Configuration

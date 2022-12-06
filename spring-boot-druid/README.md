@@ -48,7 +48,7 @@ spring:
       filters: stat,wall
 ```
 
->监控页面Web地址：[http://localhost:8080/druid/index.html](http://localhost:8080/druid/index.html)
+> 监控页面Web地址：[http://localhost:8080/druid/index.html](http://localhost:8080/druid/index.html)
 
 ### 移除广告
 

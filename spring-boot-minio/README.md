@@ -35,7 +35,7 @@ Action:
 Correct the classpath of your application so that it contains a single, compatible version of okhttp3.RequestBody
 ```
 
->注意：由于`okhttp3`依赖冲突，默认的版本低于`minio`所需版本，会导致启动失败。
+> 注意：由于`okhttp3`依赖冲突，默认的版本低于`minio`所需版本，会导致启动失败。
 
 可通过以下方法解决：**排除自身`okhttp`依赖并引入高版本的`okhttp`依赖**
 
