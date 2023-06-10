@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    # 内存模式
+    url: jdbc:h2:mem:test;MODE=MYSQL
+    # 用户名
+    username: 'sa'
+    # 密码
+    password: '123456'
+  h2:
+    # 控制台
+    console:
+      enabled: true
+      path: /h2
+  sql:
+    init:
+      platform: h2
+      schema-locations: classpath:sql/schema.sql
+      data-locations: classpath:sql/data.sql

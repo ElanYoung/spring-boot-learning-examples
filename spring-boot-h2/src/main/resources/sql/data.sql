@@ -1,0 +1,1 @@
+INSERT INTO sys_user(`username`, `nickname`, `avatar`, `email`) VALUES ('root', 'root', '', '412258712@qq.com');
