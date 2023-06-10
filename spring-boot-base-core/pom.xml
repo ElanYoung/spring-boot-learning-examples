@@ -24,11 +24,29 @@
     </properties>
 
     <dependencies>
+        <!-- Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- Knife4j 接口文档工具-->
+        <!-- AOP 切面 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!-- Spring Boot Validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <!-- MySQL驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- Knife4j 接口文档工具 -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -38,10 +56,6 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-springdoc-ui</artifactId>
             <version>3.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 

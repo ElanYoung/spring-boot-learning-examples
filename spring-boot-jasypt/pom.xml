@@ -19,26 +19,16 @@
     </properties>
 
     <dependencies>
+        <!-- 基础核心库 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.starimmortal</groupId>
+            <artifactId>spring-boot-base-core</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
+        <!-- Jasypt -->
         <dependency>
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
-            <version>3.0.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <version>3.0.5</version>
         </dependency>
     </dependencies>
 
