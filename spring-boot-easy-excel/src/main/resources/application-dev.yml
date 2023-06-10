@@ -1,0 +1,36 @@
+# 开发环境配置
+
+server:
+  # 服务端口
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/easyexcel?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF8&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: "root"
+    password: "88888888"
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # 等待连接池分配连接的最大时间（毫秒），超过这个时长还没有可用的连接，则会抛出SQLException
+      connection-timeout: 30000
+      # 最小连接数
+      minimum-idle: 5
+      # 最大连接数
+      maximum-pool-size: 20
+      # 自动提交
+      auto-commit: true
+      # 连接超时的最大时长（毫秒），超时则会被释放（retired）
+      idle-timeout: 600000
+      # 连接池的名字
+      pool-name: DataSourceHikariCP
+      # 连接池的最大生命时长（毫秒），超时则会被释放（retired）
+      max-lifetime: 18000000
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+knife4j:
+  # 开启增强配置
+  enable: true

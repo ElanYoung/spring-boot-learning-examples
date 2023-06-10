@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 /**
- * 商品
+ * 商品数据对象
  *
  * @author william@StarImmortal
  */

@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 订单
+ * 订单数据对象
  *
  * @author william@StarImmortal
  */
