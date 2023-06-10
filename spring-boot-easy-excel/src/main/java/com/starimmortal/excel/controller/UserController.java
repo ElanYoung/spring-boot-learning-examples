@@ -9,7 +9,6 @@ import com.starimmortal.excel.dto.UserExcelDTO;
 import com.starimmortal.excel.exception.ExcelDataValidateException;
 import com.starimmortal.excel.functional.PageQuery;
 import com.starimmortal.excel.listener.ExcelReadListener;
-import com.starimmortal.excel.pojo.UserDO;
 import com.starimmortal.excel.service.UserService;
 import com.starimmortal.excel.util.ExcelUtil;
 import io.swagger.annotations.Api;

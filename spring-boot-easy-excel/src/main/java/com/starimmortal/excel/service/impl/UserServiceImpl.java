@@ -6,7 +6,6 @@ import com.starimmortal.excel.dto.UserExcelDTO;
 import com.starimmortal.excel.mapper.UserMapper;
 import com.starimmortal.excel.pojo.UserDO;
 import com.starimmortal.excel.service.UserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
