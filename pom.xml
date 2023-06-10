@@ -16,6 +16,7 @@
         <module>spring-boot-quartz</module>
         <module>spring-boot-easy-excel</module>
         <module>spring-boot-h2</module>
+        <module>spring-boot-spring-security</module>
     </modules>
 
     <groupId>com.starimmortal</groupId>

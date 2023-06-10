@@ -1,0 +1,47 @@
+server:
+  servlet:
+    context-path: /
+    session:
+      timeout: 9000
+
+spring:
+  # 激活环境配置
+  profiles:
+    active: dev
+  # 文件编码 UTF8
+  mandatory-file-encoding: UTF-8
+  mvc:
+    # 解决Springfox路径匹配问题
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    # 404交给异常处理器处理
+    throw-exception-if-no-handler-found: true
+    # 静态资源文件路径
+    static-path-pattern: /static/**
+  web:
+    resources:
+      # 关闭默认静态资源的映射规则
+      add-mappings: false
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+    default-property-inclusion: non_null
+  freemarker:
+    check-template-location: false
+
+mybatis-plus:
+  configuration:
+    # 开启下划线转驼峰
+    map-underscore-to-camel-case: true
+    # 指定默认枚举类型的类型转换器
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  global-config:
+    # 开启/关闭 banner 打印
+    banner: false
+    db-config:
+      # 逻辑删除（软删除）
+      logic-delete-value: UNIX_TIMESTAMP()
+      logic-not-delete-value: 0
+  # mapper路径位置
+  mapper-locations: classpath:mapper/*.xml

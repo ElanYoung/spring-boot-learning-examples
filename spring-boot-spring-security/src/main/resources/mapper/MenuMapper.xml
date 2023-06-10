@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starimmortal.security.mapper.MenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.starimmortal.security.pojo.MenuDO">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="name" property="name" />
+        <result column="path" property="path" />
+        <result column="permission" property="permission" />
+        <result column="icon" property="icon" />
+        <result column="component" property="component" />
+        <result column="type" property="type" />
+        <result column="visible" property="visible" />
+        <result column="status" property="status" />
+        <result column="keep_alive" property="keepAlive" />
+        <result column="sort_order" property="sortOrder" />
+        <result column="create_by" property="createTime" />
+        <result column="create_time" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="is_deleted" property="deleted" />
+    </resultMap>
+
+    <select id="listMenusByRoleIds" resultType="com.starimmortal.security.pojo.MenuDO">
+        SELECT t1.id, t1.parent_id, t1.`name`, t1.`path`, t1.permission, t1.`icon`, t1.component, t1.`type`, t1.`visible`, t1.`status`, t1.keep_alive, t1.sort_order, t1.create_time, t1.update_time, t1.is_deleted
+        FROM `sys_menu` AS t1
+        JOIN sys_role_menu AS t2 ON t1.id = t2.menu_id
+        WHERE t1.is_deleted = 0 AND t1.`status` = 0
+        AND t2.role_id IN
+        <foreach collection="roleIds" item="roleId" index="index" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starimmortal.security.mapper.RoleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.starimmortal.security.pojo.RoleDO">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="code" property="code" />
+        <result column="description" property="description" />
+        <result column="status" property="status" />
+        <result column="create_by" property="createTime" />
+        <result column="create_time" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="is_deleted" property="deleted" />
+    </resultMap>
+
+    <select id="listUserRoleIds" resultType="java.lang.Long">
+        SELECT DISTINCT t1.id
+        FROM `sys_role` AS t1
+        JOIN sys_user_role AS t2 ON t1.id = t2.role_id
+        JOIN sys_user AS t3 ON t2.user_id = t3.id
+        WHERE t3.id = #{userId} AND t3.`status` = 0 AND t3.is_deleted = 0 AND t1.is_deleted = 0
+    </select>
+
+</mapper>
