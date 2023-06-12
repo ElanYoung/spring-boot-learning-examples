@@ -20,13 +20,13 @@ public class MybatisPlusMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        fillValIfNullByName("createBy", getUserName(), metaObject, false);
-        fillValIfNullByName("updateBy", getUserName(), metaObject, false);
+        fillValIfNullByName("createBy", getUsername(), metaObject, false);
+        fillValIfNullByName("updateBy", getUsername(), metaObject, false);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        fillValIfNullByName("updateBy", getUserName(), metaObject, true);
+        fillValIfNullByName("updateBy", getUsername(), metaObject, true);
     }
 
     /**
@@ -60,7 +60,7 @@ public class MybatisPlusMetaObjectHandler implements MetaObjectHandler {
      *
      * @return 当前用户名
      */
-    private String getUserName() {
+    private String getUsername() {
         LoginUser loginUser = SecurityUtil.getLoginUser();
         if (!ObjectUtils.isEmpty(loginUser)) {
             return loginUser.getUsername();
