@@ -57,7 +57,7 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(value = HttpException.class)
     public ResponseEntity<ResponseVO> handleHttpException(HttpException exception) {
-        String errorMessage = exception.getIfDefaultMessage() ? codeMessageConfiguration.getMessage(exception.getCode()) : exception.getMessage();
+        String errorMessage = exception.isDefaultMessage() ? codeMessageConfiguration.getMessage(exception.getCode()) : exception.getMessage();
         ResponseVO response = new ResponseVO<>(exception.getCode(), errorMessage);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
