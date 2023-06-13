@@ -20,9 +20,12 @@
 
 ## Introduction
 
-`spring-boot-learning-examples` is developed based on the `Spring Boot 2.7.x` version. It integrates the technology stack and middleware commonly used in development. It is a project for deep learning and actual combat with `Spring Boot`.
+`spring-boot-learning-examples` is developed based on the `Spring Boot 2.7.x` version. It integrates the technology
+stack and middleware commonly used in development. It is a project for deep learning and actual combat
+with `Spring Boot`.
 
-> If you have an example to contribute or needs to meet, it is very welcome to submit a [issue](https://github.com/ElanYoung/spring-boot-learning-examples/issues/new).
+> If you have an example to contribute or needs to meet, it is very welcome to submit
+> a [issue](https://github.com/ElanYoung/spring-boot-learning-examples/issues/new).
 
 ## Environment
 
@@ -47,62 +50,22 @@ git clone https://github.com/ElanYoung/spring-boot-learning-examples.git
 
 > Find the `Application` class in each module, right-click `Run 'Application'` to run each practice case.
 
-
 ## Learning Examples
 
-### Spring Boot Banner
-
-- Sample Code：[spring-boot-banner](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-banner)
-- Reference Article：[Spring Boot 自定义 Banner](https://blog.csdn.net/qq991658923/article/details/121302050)
-
-### Spring Boot Actuator
-
-- Sample Code：[spring-boot-actuator](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-actuator)
-- Reference Article：[Spring Boot 集成 Actuator 监控工具](https://blog.csdn.net/qq991658923/article/details/127112107)
-
-### Spring Boot Druid
-
-- Sample Code：[spring-boot-druid](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-druid)
-- Reference Article：[Spring Boot 集成 Druid 连接池](https://blog.csdn.net/qq991658923/article/details/127112527)
-
-### Spring Boot Jasypt
-
-- Sample Code：[spring-boot-jasypt](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-jasypt)
-- Reference Article：[Spring Boot 集成 Jasypt 实现敏感信息加密](https://blog.csdn.net/qq991658923/article/details/127112431)
-
-### Spring Boot WebSocket
-
-- Sample Code（Native）：[spring-boot-websocket-native](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-native)
-- Sample Code（Spring）：[spring-boot-websocket-spring](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-spring)
-- Reference Article：[Spring Boot 集成 WebSocket（原生注解与Spring封装）](https://blog.csdn.net/qq991658923/article/details/127022522)
-
-### Spring Boot JWT
-
-- Sample Code：[spring-boot-jwt](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-jwt)
-- Reference Article：[Spring Boot 集成 JWT](https://blog.csdn.net/qq991658923/article/details/127027528)
-
-### Spring Boot MinIO
-
-- Sample Code：[spring-boot-minio](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-minio)
-- Reference Article：[Spring Boot 集成 MinIO](https://blog.csdn.net/qq991658923/article/details/124623495)
-
-### Spring Boot Quartz
-
-- Sample Code：[spring-boot-quartz](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-quartz)
-- Reference Article：[Spring Boot 集成 Quartz](https://blog.csdn.net/qq991658923/article/details/127078993)
-
-### Spring Boot EasyExcel
-
-- Sample Code：[spring-boot-easy-excel](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-easy-excel)
-- Reference Article：[Spring Boot 集成 EasyExcel](https://blog.csdn.net/qq991658923/article/details/128153012)
-
-### Spring Boot H2
-
-- Sample Code：[spring-boot-h2](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-h2)
-
-### Spring Boot Spring Security
-
-- Sample Code：[spring-boot-spring-security](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-spring-security)
+| Module                       | Description                                | Code                                                                                                                                | Article                                                                                                  |
+|------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| spring-boot-banner           | Spring  Boot 自定义 Banner                    | [spring-boot-banner](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-banner)                     | [《Spring Boot 自定义 Banner》](https://blog.csdn.net/qq991658923/article/details/121302050)                  |
+| spring-boot-actuator         | Spring Boot 集成 Actuator 监控工具               | [spring-boot-actuator](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-actuator)                 | [《Spring Boot 集成 Actuator 监控工具》](https://blog.csdn.net/qq991658923/article/details/127112107)            |
+| spring-boot-druid            | Spring Boot 集成 Druid 连接池                   | [spring-boot-druid](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-druid)                       | [《Spring Boot 集成 Druid 连接池》](https://blog.csdn.net/qq991658923/article/details/127112527)                |
+| spring-boot-jasypt           | Spring Boot 集成 jasypt 实现敏感信息加密             | [spring-boot-jasypt](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-jasypt)                     | [《Spring Boot 集成 jasypt 实现敏感信息加密》](https://blog.csdn.net/qq991658923/article/details/127112431)          |
+| spring-boot-websocket-native | Spring Boot 集成 WebSocket（原生注解）             | [spring-boot-websocket-native](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-native) | [《Spring Boot 集成 WebSocket（原生注解与Spring封装）》](https://blog.csdn.net/qq991658923/article/details/127022522) |
+| spring-boot-websocket-spring | Spring Boot 集成 WebSocket（Spring封装）         | [spring-boot-websocket-spring](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-websocket-spring) | [《Spring Boot 集成 WebSocket（原生注解与Spring封装）》](https://blog.csdn.net/qq991658923/article/details/127022522) |
+| spring-boot-jwt              | Spring Boot 集成 JWT                         | [spring-boot-jwt](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-jwt)                           | [《Spring Boot 集成 JWT》](https://blog.csdn.net/qq991658923/article/details/127027528)                      |
+| spring-boot-minio            | Spring Boot 集成 MinIO（分布式文件存储系统）            | [spring-boot-minio](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-minio)                       | [《Spring Boot 集成 MinIO》](https://blog.csdn.net/qq991658923/article/details/124623495)                    |
+| spring-boot-quartz           | Spring Boot 集成 Quartz（定时任务）                | [spring-boot-quartz](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-quartz)                     | [《Spring Boot 集成 Quartz》](https://blog.csdn.net/qq991658923/article/details/127078993)                   |
+| spring-boot-easy-excel       | Spring Boot 集成 EasyExcel                   | [spring-boot-easy-excel](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-easy-excel)             | [《Spring Boot 集成 EasyExcel》](https://blog.csdn.net/qq991658923/article/details/128153012)                |
+| spring-boot-h2               | Spring Boot 集成 H2（轻量级数据库）                  | [spring-boot-h2](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-h2)                             |                                                                                                          |
+| spring-boot-spring-security  | Spring Boot 集成 Spring Security 5.7.x（安全框架） | [spring-boot-spring-security](https://github.com/ElanYoung/spring-boot-learning-examples/tree/master/spring-boot-spring-security)   | [《Spring Boot 优雅集成 Spring Security 5.7.x（安全框架）》](https://juejin.cn/post/7244089396567982136)             |
 
 ## Stargazers over time
 
