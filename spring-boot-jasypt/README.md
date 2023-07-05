@@ -12,7 +12,7 @@
 <dependency>
     <groupId>com.github.ulisesbocchio</groupId>
     <artifactId>jasypt-spring-boot-starter</artifactId>
-    <version>3.0.4</version>
+    <version>3.0.5</version>
 </dependency>
 ```
 
@@ -88,10 +88,8 @@ public class JasyptApplication implements CommandLineRunner {
 
 ```
 MySQL原始明文密码为：123456
-Redis原始明文密码为：111111
 ====================================
 MySQL原始明文密码加密后的结果为：IV7SyeQOfG4GhiXeGLboVgOLPDO+dJMDoOdmEOQp3KyVjruI+dKKeehsTriWPKbo
-Redis原始明文密码加密后的结果为：litUkxJ3fN6+//Emq3vZ+y4o7ZOnZ8doOy7NrgJIDLoNWGG0m3ygGeQh/dEroKvv
 ```
 
 ## 替换待加密配置项
