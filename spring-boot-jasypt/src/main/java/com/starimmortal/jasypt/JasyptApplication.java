@@ -27,7 +27,7 @@ public class JasyptApplication implements CommandLineRunner {
 
         // 首先获取配置文件里的原始明文信息
         String mysqlOriginPassword = environment.getProperty("spring.datasource.password");
-        String redisOriginPassword = environment.getProperty("redis.password");
+        String redisOriginPassword = environment.getProperty("spring.redis.password");
 
         // 加密
         String mysqlEncryptedPassword = stringEncryptor.encrypt(mysqlOriginPassword);
