@@ -3,6 +3,7 @@ package com.starimmortal.quartz.controller;
 import com.starimmortal.core.vo.ResponseVO;
 import com.starimmortal.quartz.dto.QuartzJobDTO;
 import com.starimmortal.quartz.service.QuartzJobService;
+import com.starimmortal.quartz.vo.QuartzJobVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,28 +44,28 @@ public class QuartzJobController {
     @ApiOperation(value = "暂停定时任务")
     @PostMapping("/pause")
     public ResponseVO pauseJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.pauseJob(dto);
+        quartzJobService.pauseJob(dto.getJobName(), dto.getJobGroupName());
         return ResponseVO.success();
     }
 
     @ApiOperation(value = "恢复定时任务")
     @PostMapping("/resume")
     public ResponseVO resumeJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.resumeJob(dto);
+        quartzJobService.resumeJob(dto.getJobName(), dto.getJobGroupName());
         return ResponseVO.success();
     }
 
     @ApiOperation(value = "删除定时任务")
     @PostMapping("/delete")
     public ResponseVO deleteJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.deleteJob(dto);
+        quartzJobService.deleteJob(dto.getJobName(), dto.getJobGroupName());
         return ResponseVO.success();
     }
 
     @ApiOperation(value = "查询所有任务")
     @GetMapping("/list")
-    public ResponseVO listJobs() {
-        List<String> jobs = quartzJobService.listJobs();
+    public ResponseVO<List<QuartzJobVO>> listJobs() {
+        List<QuartzJobVO> jobs = quartzJobService.listJobs();
         return ResponseVO.success(jobs);
     }
 }

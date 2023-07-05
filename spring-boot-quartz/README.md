@@ -128,7 +128,7 @@ public class QuartzConfiguration {
     <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>druid-spring-boot-starter</artifactId>
-        <version>1.2.12</version>
+        <version>1.2.18</version>
     </dependency>
 </dependencies>
 ```
@@ -216,22 +216,41 @@ public class QuartzJobServiceImpl implements QuartzJobService {
     @SneakyThrows
     @Override
     public void scheduleJob(String jobName, String jobGroupName, String triggerName, String triggerGroupName, String jobClazz, String cron) {
-        Class<?> jobClazz = Class.forName("com.starimmortal.quartz.job" + jobClazz);
-        JobDetail jobDetail = JobBuilder.newJob((Class<? extends Job>) jobClazz.newInstance())
-                .withIdentity(jobName, jobGroupName)
+        JobDetail jobDetail = JobBuilder.newJob(getClass(dto.getJobClassName()).getClass())
+                .withIdentity(dto.getJobName(), dto.getJobGroupName())
+                .withDescription(dto.getDescription())
                 .storeDurably()
                 .build();
 
+        // 设置任务参数
+        if (Objects.nonNull(dto.getParams()) && !dto.getParams().isEmpty()) {
+            jobDetail.getJobDataMap().putAll(dto.getParams());
+        }
+
         CronTrigger cronTrigger = TriggerBuilder.newTrigger()
-                .withIdentity(triggerName, triggerGroupName)
+                .withIdentity(dto.getTriggerName(), dto.getTriggerGroupName())
                 .startNow()
-                .withSchedule(CronScheduleBuilder.cronSchedule(cron))
+                .withSchedule(CronScheduleBuilder.cronSchedule(dto.getCron()))
                 .build();
 
         scheduler.scheduleJob(jobDetail, cronTrigger);
+
+        // 启动调度器
         if (!scheduler.isShutdown()) {
             scheduler.start();
         }
+    }
+    
+    /**
+     * 通过反射获取类
+     *
+     * @param className 类名
+     * @return {@link Job}
+     */
+    @SneakyThrows
+    private static Job getClass(String className) {
+        Class<?> clazz = Class.forName(className);
+        return (Job) clazz.newInstance();
     }
 }
 ```
@@ -247,15 +266,16 @@ public class QuartzJobServiceImpl implements QuartzJobService {
 
     @SneakyThrows
     @Override
-    public void rescheduleJob(String jobName, String jobGroupName, String cron) {
-        TriggerKey triggerKey = TriggerKey.triggerKey(jobName, jobGroupName);
+    public void rescheduleJob(QuartzJobDTO dto) {
+        TriggerKey triggerKey = TriggerKey.triggerKey(dto.getTriggerName(), dto.getTriggerGroupName());
         CronTrigger cronTrigger = TriggerBuilder.newTrigger()
                 .withIdentity(triggerKey)
+                .withSchedule(CronScheduleBuilder.cronSchedule(dto.getCron()))
                 .startNow()
-                .withSchedule(CronScheduleBuilder.cronSchedule(cron))
                 .build();
         scheduler.rescheduleJob(triggerKey, cronTrigger);
     }
+}
 ```
 
 ### 暂停定时任务
@@ -322,9 +342,34 @@ public class QuartzJobServiceImpl implements QuartzJobService {
 
     @SneakyThrows
     @Override
-    public List<String> listJobs() {
-        Set<JobKey> jobKeys = scheduler.getJobKeys(GroupMatcher.anyGroup());
-        return jobKeys.stream().map(JobKey::getName).collect(Collectors.toList());
+    public List<QuartzJobVO> listJobs() {
+        List<QuartzJobVO> jobList = new ArrayList<>();
+        GroupMatcher<JobKey> matcher = GroupMatcher.anyJobGroup();
+        Set<JobKey> jobKeys = scheduler.getJobKeys(matcher);
+        for (JobKey jobKey : jobKeys) {
+            List<? extends Trigger> triggers = scheduler.getTriggersOfJob(jobKey);
+            for (Trigger trigger : triggers) {
+                QuartzJobVO quartzJob = new QuartzJobVO();
+                quartzJob.setTriggerGroupName(trigger.getKey().getName());
+                quartzJob.setTriggerName(trigger.getKey().getGroup());
+                quartzJob.setJobGroupName(jobKey.getGroup());
+                quartzJob.setJobName(jobKey.getName());
+                quartzJob.setStartTime(trigger.getStartTime());
+                quartzJob.setJobClassName(scheduler.getJobDetail(jobKey).getJobClass().getName());
+                quartzJob.setNextFireTime(trigger.getNextFireTime());
+                quartzJob.setPreviousFireTime(trigger.getPreviousFireTime());
+                quartzJob.setJobStatus(scheduler.getTriggerState(trigger.getKey()).name());
+                quartzJob.setDescription(scheduler.getJobDetail(jobKey).getDescription());
+                quartzJob.setParams(scheduler.getJobDetail(jobKey).getJobDataMap());
+                if (trigger instanceof CronTrigger) {
+                    CronTrigger cronTrigger = (CronTrigger) trigger;
+                    quartzJob.setCron(cronTrigger.getCronExpression());
+                    quartzJob.setTimeZone(cronTrigger.getTimeZone().getDisplayName());
+                }
+                jobList.add(quartzJob);
+            }
+        }
+        return jobList;
     }
 }
 ```

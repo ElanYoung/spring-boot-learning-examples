@@ -26,7 +26,7 @@ public class QuartzConfiguration {
     @Bean
     public Trigger trigger() {
         return TriggerBuilder.newTrigger()
-                .withIdentity("trigger", "group")
+                .withIdentity("job", "group")
                 .forJob(jobDetail())
                 .startNow()
                 .withSchedule(CronScheduleBuilder.cronSchedule("0,5 * * * * ?"))
