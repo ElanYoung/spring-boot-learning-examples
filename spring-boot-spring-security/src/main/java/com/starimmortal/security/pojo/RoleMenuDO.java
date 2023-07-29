@@ -20,19 +20,21 @@ import lombok.NoArgsConstructor;
 @Builder
 @TableName(value = "sys_role_menu")
 public class RoleMenuDO {
-    /**
-     * 主键
-     */
-    @TableId(type = IdType.AUTO)
-    private Long id;
 
-    /**
-     * 角色编号
-     */
-    private Long roleId;
+	/**
+	 * 主键
+	 */
+	@TableId(type = IdType.AUTO)
+	private Long id;
 
-    /**
-     * 菜单编号
-     */
-    private Long menuId;
+	/**
+	 * 角色编号
+	 */
+	private Long roleId;
+
+	/**
+	 * 菜单编号
+	 */
+	private Long menuId;
+
 }

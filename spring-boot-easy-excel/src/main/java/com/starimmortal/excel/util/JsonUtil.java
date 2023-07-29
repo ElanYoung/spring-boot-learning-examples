@@ -20,41 +20,44 @@ import java.util.List;
 @Component
 public class JsonUtil {
 
-    public static ObjectMapper objectMapper;
+	public static ObjectMapper objectMapper;
 
-    @Autowired
-    public void setObjectMapper(ObjectMapper objectMapper) {
-        JsonUtil.objectMapper = objectMapper;
-    }
+	@Autowired
+	public void setObjectMapper(ObjectMapper objectMapper) {
+		JsonUtil.objectMapper = objectMapper;
+	}
 
-    public static <T> T readJsonFile(String filePath, TypeReference<T> typeReference) {
-        if (!StringUtils.hasText(filePath)) {
-            throw new RuntimeException();
-        }
-        try {
-            ClassPathResource classPathResource = new ClassPathResource(filePath);
-            InputStream inputStream = classPathResource.getInputStream();
-            return JsonUtil.objectMapper.readValue(inputStream, typeReference);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+	public static <T> T readJsonFile(String filePath, TypeReference<T> typeReference) {
+		if (!StringUtils.hasText(filePath)) {
+			throw new RuntimeException();
+		}
+		try {
+			ClassPathResource classPathResource = new ClassPathResource(filePath);
+			InputStream inputStream = classPathResource.getInputStream();
+			return JsonUtil.objectMapper.readValue(inputStream, typeReference);
+		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public static <T> List<T> readJsonArrayFile(String filePath, Class<T> clazz) {
-        if (!StringUtils.hasText(filePath)) {
-            throw new RuntimeException();
-        }
-        try {
-            ClassPathResource classPathResource = new ClassPathResource(filePath);
-            InputStream inputStream = classPathResource.getInputStream();
-            JavaType javaType = getCollectionType(List.class, clazz);
-            return JsonUtil.objectMapper.readValue(inputStream, javaType);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+	public static <T> List<T> readJsonArrayFile(String filePath, Class<T> clazz) {
+		if (!StringUtils.hasText(filePath)) {
+			throw new RuntimeException();
+		}
+		try {
+			ClassPathResource classPathResource = new ClassPathResource(filePath);
+			InputStream inputStream = classPathResource.getInputStream();
+			JavaType javaType = getCollectionType(List.class, clazz);
+			return JsonUtil.objectMapper.readValue(inputStream, javaType);
+		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public static JavaType getCollectionType(Class<?> collectionClass, Class<?>... elementClasses) {
-        return objectMapper.getTypeFactory().constructParametricType(collectionClass, elementClasses);
-    }
+	public static JavaType getCollectionType(Class<?> collectionClass, Class<?>... elementClasses) {
+		return objectMapper.getTypeFactory().constructParametricType(collectionClass, elementClasses);
+	}
+
 }

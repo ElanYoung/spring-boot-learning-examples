@@ -24,20 +24,21 @@ import org.springframework.web.multipart.MultipartFile;
 @Api(tags = "MinIO")
 public class MinioController {
 
-    @Autowired
-    private MinioProperties minioProperties;
+	@Autowired
+	private MinioProperties minioProperties;
 
-    @ApiOperation(value = "上传文件")
-    @SneakyThrows
-    @PostMapping(value = "/upload")
-    public ResponseVO upload(@RequestParam(name = "file") MultipartFile multipartFile) {
-        if (ObjectUtils.isEmpty(multipartFile)) {
-            return ResponseVO.error("上传失败");
-        }
-        String extension = FileUtil.getFileExtension(multipartFile);
-        String fileName = FileUtil.getNewFilename(extension);
-        MinioUtil.createBucket(minioProperties.getBucket());
-        MinioUtil.uploadFile(minioProperties.getBucket(), multipartFile, fileName);
-        return ResponseVO.success("上传成功", MinioUtil.getPreSignedObjectUrl(minioProperties.getBucket(), fileName));
-    }
+	@ApiOperation(value = "上传文件")
+	@SneakyThrows
+	@PostMapping(value = "/upload")
+	public ResponseVO upload(@RequestParam(name = "file") MultipartFile multipartFile) {
+		if (ObjectUtils.isEmpty(multipartFile)) {
+			return ResponseVO.error("上传失败");
+		}
+		String extension = FileUtil.getFileExtension(multipartFile);
+		String fileName = FileUtil.getNewFilename(extension);
+		MinioUtil.createBucket(minioProperties.getBucket());
+		MinioUtil.uploadFile(minioProperties.getBucket(), multipartFile, fileName);
+		return ResponseVO.success("上传成功", MinioUtil.getPreSignedObjectUrl(minioProperties.getBucket(), fileName));
+	}
+
 }

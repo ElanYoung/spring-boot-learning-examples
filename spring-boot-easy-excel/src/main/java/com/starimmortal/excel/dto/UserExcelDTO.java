@@ -23,59 +23,61 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class UserExcelDTO {
-    /**
-     * 用户名
-     */
-    @NotBlank(message = "用户名不可为空")
-    @ExcelProperty("用户名")
-    @ColumnWidth(20)
-    private String username;
 
-    /**
-     * 密码
-     */
-    @ExcelIgnore
-    private String password;
+	/**
+	 * 用户名
+	 */
+	@NotBlank(message = "用户名不可为空")
+	@ExcelProperty("用户名")
+	@ColumnWidth(20)
+	private String username;
 
-    /**
-     * 昵称
-     */
-    @ExcelProperty("昵称")
-    @ColumnWidth(20)
-    private String nickname;
+	/**
+	 * 密码
+	 */
+	@ExcelIgnore
+	private String password;
 
-    /**
-     * 生日
-     */
-    @ExcelProperty("生日")
-    @ColumnWidth(20)
-    @DateTimeFormat("yyyy-MM-dd")
-    private Date birthday;
+	/**
+	 * 昵称
+	 */
+	@ExcelProperty("昵称")
+	@ColumnWidth(20)
+	private String nickname;
 
-    /**
-     * 手机号
-     */
-    @NotBlank(message = "手机号不可为空")
-    @ExcelProperty("手机号")
-    @ColumnWidth(20)
-    private String phone;
+	/**
+	 * 生日
+	 */
+	@ExcelProperty("生日")
+	@ColumnWidth(20)
+	@DateTimeFormat("yyyy-MM-dd")
+	private Date birthday;
 
-    /**
-     * 身高（米）
-     */
-    @ExcelProperty("身高（米）")
-    @NumberFormat("#.##")
-    @ColumnWidth(16)
-    private Double height;
+	/**
+	 * 手机号
+	 */
+	@NotBlank(message = "手机号不可为空")
+	@ExcelProperty("手机号")
+	@ColumnWidth(20)
+	private String phone;
 
-    /**
-     * 性别
-     */
-    @ExcelProperty(value = "性别", converter = GenderConverter.class)
-    @ColumnWidth(10)
-    private Integer gender;
+	/**
+	 * 身高（米）
+	 */
+	@ExcelProperty("身高（米）")
+	@NumberFormat("#.##")
+	@ColumnWidth(16)
+	private Double height;
 
-    public UserExcelDTO(UserDO user) {
-        BeanUtils.copyProperties(user, this);
-    }
+	/**
+	 * 性别
+	 */
+	@ExcelProperty(value = "性别", converter = GenderConverter.class)
+	@ColumnWidth(10)
+	private Integer gender;
+
+	public UserExcelDTO(UserDO user) {
+		BeanUtils.copyProperties(user, this);
+	}
+
 }

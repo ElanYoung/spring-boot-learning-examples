@@ -12,11 +12,12 @@ import java.util.List;
  * @date 2022/12/16
  */
 public interface RoleService extends IService<RoleDO> {
-    /**
-     * 查询某用户所有角色编号
-     *
-     * @param userId 用户编号
-     * @return 角色编号列表
-     */
-    List<Long> listRoleIdsByUserId(Long userId);
+
+	/**
+	 * 查询某用户所有角色编号
+	 * @param userId 用户编号
+	 * @return 角色编号列表
+	 */
+	List<Long> listRoleIdsByUserId(Long userId);
+
 }

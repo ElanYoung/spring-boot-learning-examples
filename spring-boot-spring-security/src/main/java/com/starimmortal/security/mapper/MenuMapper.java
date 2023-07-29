@@ -15,11 +15,12 @@ import java.util.List;
  */
 @Mapper
 public interface MenuMapper extends BaseMapper<MenuDO> {
-    /**
-     * 根据角色编号列表查询对应菜单权限集合
-     *
-     * @param roleIds 角色编号列表
-     * @return 菜单权限集合
-     */
-    List<MenuDO> listMenusByRoleIds(@Param("roleIds") List<Long> roleIds);
+
+	/**
+	 * 根据角色编号列表查询对应菜单权限集合
+	 * @param roleIds 角色编号列表
+	 * @return 菜单权限集合
+	 */
+	List<MenuDO> listMenusByRoleIds(@Param("roleIds") List<Long> roleIds);
+
 }

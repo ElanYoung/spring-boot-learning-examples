@@ -19,20 +19,21 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "WebSocket")
 public class WebSocketController {
 
-    @Autowired
-    private WebSocket webSocket;
+	@Autowired
+	private WebSocket webSocket;
 
-    @ApiOperation(value = "发送广播消息")
-    @PostMapping("/broadcast/send")
-    public ResponseVO sendBroadcastMessage(@RequestParam String message) {
-        webSocket.sendAllMessage(message);
-        return ResponseVO.success();
-    }
+	@ApiOperation(value = "发送广播消息")
+	@PostMapping("/broadcast/send")
+	public ResponseVO sendBroadcastMessage(@RequestParam String message) {
+		webSocket.sendAllMessage(message);
+		return ResponseVO.success();
+	}
 
-    @ApiOperation(value = "发送单点消息")
-    @PostMapping("/single/send")
-    public ResponseVO sendSingleMessage(@RequestParam String userId, @RequestParam String message) {
-        webSocket.sendOneMessage(userId, message);
-        return ResponseVO.success();
-    }
+	@ApiOperation(value = "发送单点消息")
+	@PostMapping("/single/send")
+	public ResponseVO sendSingleMessage(@RequestParam String userId, @RequestParam String message) {
+		webSocket.sendOneMessage(userId, message);
+		return ResponseVO.success();
+	}
+
 }

@@ -10,34 +10,35 @@ import org.springframework.http.HttpStatus;
  * @date 2022/05/28
  */
 public class FileTooManyException extends HttpException {
-    /**
-     * 错误码
-     */
-    protected int code = Code.FILE_TOO_MANY.getCode();
 
-    /**
-     * HTTP状态码
-     */
-    protected int httpStatusCode = HttpStatus.PAYLOAD_TOO_LARGE.value();
+	/**
+	 * 错误码
+	 */
+	protected int code = Code.FILE_TOO_MANY.getCode();
 
+	/**
+	 * HTTP状态码
+	 */
+	protected int httpStatusCode = HttpStatus.PAYLOAD_TOO_LARGE.value();
 
-    public FileTooManyException() {
-        super(Code.FILE_TOO_MANY.getCode(), Code.FILE_TOO_MANY.getDescription());
-        super.defaultMessage = true;
-    }
+	public FileTooManyException() {
+		super(Code.FILE_TOO_MANY.getCode(), Code.FILE_TOO_MANY.getDescription());
+		super.defaultMessage = true;
+	}
 
-    public FileTooManyException(String message) {
-        super(message);
-    }
+	public FileTooManyException(String message) {
+		super(message);
+	}
 
-    public FileTooManyException(int code) {
-        super(code, Code.FILE_TOO_MANY.getDescription());
-        this.code = code;
-        super.defaultMessage = true;
-    }
+	public FileTooManyException(int code) {
+		super(code, Code.FILE_TOO_MANY.getDescription());
+		this.code = code;
+		super.defaultMessage = true;
+	}
 
-    public FileTooManyException(int code, String message) {
-        super(code, message);
-        this.code = code;
-    }
+	public FileTooManyException(int code, String message) {
+		super(code, message);
+		this.code = code;
+	}
+
 }

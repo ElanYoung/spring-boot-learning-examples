@@ -16,24 +16,28 @@ import java.lang.reflect.Method;
  */
 public class AuthorizeInterceptor implements AsyncHandlerInterceptor {
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (handler instanceof HandlerMethod) {
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            Method method = handlerMethod.getMethod();
-            String methodName = method.getName();
-            String className = method.getDeclaringClass().getName();
-        }
-        return true;
-    }
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		if (handler instanceof HandlerMethod) {
+			HandlerMethod handlerMethod = (HandlerMethod) handler;
+			Method method = handlerMethod.getMethod();
+			String methodName = method.getName();
+			String className = method.getDeclaringClass().getName();
+		}
+		return true;
+	}
 
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
 
-    }
+	}
 
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
 
-    }
+	}
+
 }

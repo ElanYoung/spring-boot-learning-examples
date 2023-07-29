@@ -18,71 +18,70 @@ import java.util.Objects;
 @SuppressWarnings("unchecked")
 @Slf4j
 public class ResponseUtil {
-    /**
-     * 获得当前响应
-     *
-     * @return 响应
-     */
-    public static HttpServletResponse getResponse() {
-        return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
-    }
 
-    public static void setCurrentResponseHttpStatus(Integer httpStatus) {
-        getResponse().setStatus(httpStatus);
-    }
+	/**
+	 * 获得当前响应
+	 * @return 响应
+	 */
+	public static HttpServletResponse getResponse() {
+		return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes()))
+			.getResponse();
+	}
 
-    public static <T> ResponseVO<T> generateCreatedResponse(Integer code) {
-        return (ResponseVO<T>) ResponseVO.builder()
-                .message(Code.CREATED.getDescription())
-                .code(code)
-                .request(RequestUtil.getSimpleRequest())
-                .build();
-    }
+	public static void setCurrentResponseHttpStatus(Integer httpStatus) {
+		getResponse().setStatus(httpStatus);
+	}
 
-    public static <T> ResponseVO<T> generateCreatedResponse(Integer code, String message) {
-        return (ResponseVO<T>) ResponseVO.builder()
-                .message(message)
-                .code(code)
-                .request(RequestUtil.getSimpleRequest())
-                .build();
-    }
+	public static <T> ResponseVO<T> generateCreatedResponse(Integer code) {
+		return (ResponseVO<T>) ResponseVO.builder()
+			.message(Code.CREATED.getDescription())
+			.code(code)
+			.request(RequestUtil.getSimpleRequest())
+			.build();
+	}
 
-    public static <T> ResponseVO<T> generateDeletedResponse(Integer code) {
-        return (ResponseVO<T>) ResponseVO.builder()
-                .message(Code.SUCCESS.getDescription())
-                .code(code)
-                .request(RequestUtil.getSimpleRequest())
-                .build();
-    }
+	public static <T> ResponseVO<T> generateCreatedResponse(Integer code, String message) {
+		return (ResponseVO<T>) ResponseVO.builder()
+			.message(message)
+			.code(code)
+			.request(RequestUtil.getSimpleRequest())
+			.build();
+	}
 
-    public static <T> ResponseVO<T> generateDeletedResponse(Integer code, String message) {
-        return (ResponseVO<T>) ResponseVO.builder()
-                .message(message)
-                .code(code)
-                .request(RequestUtil.getSimpleRequest())
-                .build();
-    }
+	public static <T> ResponseVO<T> generateDeletedResponse(Integer code) {
+		return (ResponseVO<T>) ResponseVO.builder()
+			.message(Code.SUCCESS.getDescription())
+			.code(code)
+			.request(RequestUtil.getSimpleRequest())
+			.build();
+	}
 
-    public static <T> ResponseVO<T> generateUpdatedResponse(Integer code) {
-        return (ResponseVO<T>) ResponseVO.builder()
-                .message(Code.SUCCESS.getDescription())
-                .code(code)
-                .request(RequestUtil.getSimpleRequest())
-                .build();
-    }
+	public static <T> ResponseVO<T> generateDeletedResponse(Integer code, String message) {
+		return (ResponseVO<T>) ResponseVO.builder()
+			.message(message)
+			.code(code)
+			.request(RequestUtil.getSimpleRequest())
+			.build();
+	}
 
-    public static <T> ResponseVO<T> generateUpdatedResponse(Integer code, String message) {
-        return (ResponseVO<T>) ResponseVO.builder()
-                .message(message)
-                .code(code)
-                .request(RequestUtil.getSimpleRequest())
-                .build();
-    }
+	public static <T> ResponseVO<T> generateUpdatedResponse(Integer code) {
+		return (ResponseVO<T>) ResponseVO.builder()
+			.message(Code.SUCCESS.getDescription())
+			.code(code)
+			.request(RequestUtil.getSimpleRequest())
+			.build();
+	}
 
-    public static <T> ResponseVO<T> generateUnifyResponse(Integer code) {
-        return (ResponseVO<T>) ResponseVO.builder()
-                .code(code)
-                .request(RequestUtil.getSimpleRequest())
-                .build();
-    }
+	public static <T> ResponseVO<T> generateUpdatedResponse(Integer code, String message) {
+		return (ResponseVO<T>) ResponseVO.builder()
+			.message(message)
+			.code(code)
+			.request(RequestUtil.getSimpleRequest())
+			.build();
+	}
+
+	public static <T> ResponseVO<T> generateUnifyResponse(Integer code) {
+		return (ResponseVO<T>) ResponseVO.builder().code(code).request(RequestUtil.getSimpleRequest()).build();
+	}
+
 }

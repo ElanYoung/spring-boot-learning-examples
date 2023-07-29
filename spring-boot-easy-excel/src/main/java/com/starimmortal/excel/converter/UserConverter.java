@@ -14,11 +14,12 @@ import java.util.List;
 @Mapper
 public interface UserConverter {
 
-    UserConverter INSTANCE = Mappers.getMapper(UserConverter.class);
+	UserConverter INSTANCE = Mappers.getMapper(UserConverter.class);
 
-    UserExcelDTO convert(UserDO user);
+	UserExcelDTO convert(UserDO user);
 
-    UserDO convert(UserExcelDTO userExcel);
+	UserDO convert(UserExcelDTO userExcel);
 
-    List<UserDO> convert(List<UserExcelDTO> userExcelList);
+	List<UserDO> convert(List<UserExcelDTO> userExcelList);
+
 }

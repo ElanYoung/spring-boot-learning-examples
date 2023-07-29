@@ -13,34 +13,36 @@ import java.util.List;
  */
 @Data
 public class OrderDO {
-    /**
-     * 主键
-     */
-    private String id;
 
-    /**
-     * 订单编号
-     */
-    private String orderId;
+	/**
+	 * 主键
+	 */
+	private String id;
 
-    /**
-     * 收货地址
-     */
-    private String address;
+	/**
+	 * 订单编号
+	 */
+	private String orderId;
 
-    /**
-     * 用户信息
-     */
-    private UserDO user;
+	/**
+	 * 收货地址
+	 */
+	private String address;
 
-    /**
-     * 商品列表
-     */
-    private List<ProductDO> productList;
+	/**
+	 * 用户信息
+	 */
+	private UserDO user;
 
-    /**
-     * 订单创建时间
-     */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date createTime;
+	/**
+	 * 商品列表
+	 */
+	private List<ProductDO> productList;
+
+	/**
+	 * 订单创建时间
+	 */
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	private Date createTime;
+
 }

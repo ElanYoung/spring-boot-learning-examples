@@ -31,47 +31,48 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements UserService, UserDetailsService {
 
-    @Autowired
-    private RoleService roleService;
+	@Autowired
+	private RoleService roleService;
 
-    @Autowired
-    private MenuService menuService;
+	@Autowired
+	private MenuService menuService;
 
-    @Autowired
-    private RedisUtil redisUtil;
+	@Autowired
+	private RedisUtil redisUtil;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) {
-        // 查询用户信息
-        UserDO user = getUserByUsername(username);
-        // 查询用户菜单列表
-        List<MenuDO> menuList = listUserPermissions(user.getId());
-        // 查询用户权限信息
-        return new LoginUser(user, menuList);
-    }
+	@Override
+	public UserDetails loadUserByUsername(String username) {
+		// 查询用户信息
+		UserDO user = getUserByUsername(username);
+		// 查询用户菜单列表
+		List<MenuDO> menuList = listUserPermissions(user.getId());
+		// 查询用户权限信息
+		return new LoginUser(user, menuList);
+	}
 
-    @Override
-    public UserDO getUserByUsername(String username) {
-        LambdaQueryWrapper<UserDO> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(UserDO::getUsername, username);
-        Optional<UserDO> optional = Optional.ofNullable(baseMapper.selectOne(queryWrapper));
-        return optional.orElseThrow(() -> new UsernameNotFoundException("用户不存在"));
-    }
+	@Override
+	public UserDO getUserByUsername(String username) {
+		LambdaQueryWrapper<UserDO> queryWrapper = new LambdaQueryWrapper<>();
+		queryWrapper.eq(UserDO::getUsername, username);
+		Optional<UserDO> optional = Optional.ofNullable(baseMapper.selectOne(queryWrapper));
+		return optional.orElseThrow(() -> new UsernameNotFoundException("用户不存在"));
+	}
 
-    @Override
-    public List<MenuDO> listUserPermissions(Long userId) {
-        // TODO 用户权限新增问题
-        String redisKey = "user:menu:" + userId + ":set";
-        String redisValue = redisUtil.get(redisKey);
-        if (StringUtils.hasText(redisValue)) {
-            return GenericJacksonUtil.jsonToObject(redisValue, new TypeReference<List<MenuDO>>() {
-            });
-        }
-        List<Long> roleIds = roleService.listRoleIdsByUserId(userId);
-        List<MenuDO> menuList = menuService.listMenusByRoleIds(roleIds);
-        if (!menuList.isEmpty()) {
-            redisUtil.set(redisKey, GenericJacksonUtil.objectToJson(menuList));
-        }
-        return menuList;
-    }
+	@Override
+	public List<MenuDO> listUserPermissions(Long userId) {
+		// TODO 用户权限新增问题
+		String redisKey = "user:menu:" + userId + ":set";
+		String redisValue = redisUtil.get(redisKey);
+		if (StringUtils.hasText(redisValue)) {
+			return GenericJacksonUtil.jsonToObject(redisValue, new TypeReference<List<MenuDO>>() {
+			});
+		}
+		List<Long> roleIds = roleService.listRoleIdsByUserId(userId);
+		List<MenuDO> menuList = menuService.listMenusByRoleIds(roleIds);
+		if (!menuList.isEmpty()) {
+			redisUtil.set(redisKey, GenericJacksonUtil.objectToJson(menuList));
+		}
+		return menuList;
+	}
+
 }

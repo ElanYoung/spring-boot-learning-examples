@@ -11,38 +11,40 @@ import java.math.BigDecimal;
  */
 @Data
 public class ProductDO {
-    /**
-     * 主键
-     */
-    private String id;
 
-    /**
-     * 商品编号
-     */
-    private String productId;
+	/**
+	 * 主键
+	 */
+	private String id;
 
-    /**
-     * 商品名称
-     */
-    private String name;
+	/**
+	 * 商品编号
+	 */
+	private String productId;
 
-    /**
-     * 商品标题
-     */
-    private String subtitle;
+	/**
+	 * 商品名称
+	 */
+	private String name;
 
-    /**
-     * 品牌名称
-     */
-    private String brandName;
+	/**
+	 * 商品标题
+	 */
+	private String subtitle;
 
-    /**
-     * 商品价格
-     */
-    private BigDecimal price;
+	/**
+	 * 品牌名称
+	 */
+	private String brandName;
 
-    /**
-     * 商品数量
-     */
-    private Integer count;
+	/**
+	 * 商品价格
+	 */
+	private BigDecimal price;
+
+	/**
+	 * 商品数量
+	 */
+	private Integer count;
+
 }

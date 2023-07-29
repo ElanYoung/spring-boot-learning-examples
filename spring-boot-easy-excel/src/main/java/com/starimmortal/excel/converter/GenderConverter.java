@@ -13,23 +13,25 @@ import com.starimmortal.excel.enumeration.GenderEnum;
  * @author william@StarImmortal
  */
 public class GenderConverter implements Converter<Integer> {
-    @Override
-    public Class<?> supportJavaTypeKey() {
-        return Integer.class;
-    }
 
-    @Override
-    public CellDataTypeEnum supportExcelTypeKey() {
-        return CellDataTypeEnum.STRING;
-    }
+	@Override
+	public Class<?> supportJavaTypeKey() {
+		return Integer.class;
+	}
 
-    @Override
-    public Integer convertToJavaData(ReadConverterContext<?> context) {
-        return GenderEnum.convert(context.getReadCellData().getStringValue()).getValue();
-    }
+	@Override
+	public CellDataTypeEnum supportExcelTypeKey() {
+		return CellDataTypeEnum.STRING;
+	}
 
-    @Override
-    public WriteCellData<?> convertToExcelData(WriteConverterContext<Integer> context) {
-        return new WriteCellData<>(GenderEnum.convert(context.getValue()).getDescription());
-    }
+	@Override
+	public Integer convertToJavaData(ReadConverterContext<?> context) {
+		return GenderEnum.convert(context.getReadCellData().getStringValue()).getValue();
+	}
+
+	@Override
+	public WriteCellData<?> convertToExcelData(WriteConverterContext<Integer> context) {
+		return new WriteCellData<>(GenderEnum.convert(context.getValue()).getDescription());
+	}
+
 }

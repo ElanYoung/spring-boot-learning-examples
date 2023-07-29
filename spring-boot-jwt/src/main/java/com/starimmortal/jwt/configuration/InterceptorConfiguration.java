@@ -16,13 +16,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class InterceptorConfiguration implements WebMvcConfigurer {
 
-    @Bean
-    public AuthorizeInterceptor authorizeInterceptor() {
-        return new AuthorizeInterceptor();
-    }
+	@Bean
+	public AuthorizeInterceptor authorizeInterceptor() {
+		return new AuthorizeInterceptor();
+	}
 
-    @Override
-    public void addInterceptors(@NonNull InterceptorRegistry registry) {
-        registry.addInterceptor(authorizeInterceptor());
-    }
+	@Override
+	public void addInterceptors(@NonNull InterceptorRegistry registry) {
+		registry.addInterceptor(authorizeInterceptor());
+	}
+
 }

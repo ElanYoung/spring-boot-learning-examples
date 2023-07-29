@@ -18,48 +18,64 @@ import java.util.List;
 @Component
 public class GenericJacksonUtil {
 
-    public static ObjectMapper objectMapper;
+	public static ObjectMapper objectMapper;
 
-    @Autowired
-    public void setObjectMapper(ObjectMapper objectMapper) {
-        GenericJacksonUtil.objectMapper = objectMapper;
-    }
+	@Autowired
+	public void setObjectMapper(ObjectMapper objectMapper) {
+		GenericJacksonUtil.objectMapper = objectMapper;
+	}
 
-    public static <T> String objectToJson(T object) {
-        try {
-            assert GenericJacksonUtil.objectMapper != null;
-            return GenericJacksonUtil.objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            throw new ServerErrorException(9999);
-        }
-    }
+	public static <T> String objectToJson(T object) {
+		try {
+			assert GenericJacksonUtil.objectMapper != null;
+			return GenericJacksonUtil.objectMapper.writeValueAsString(object);
+		}
+		catch (JsonProcessingException e) {
+			e.printStackTrace();
+			throw new ServerErrorException(9999);
+		}
+	}
 
-    public static <T> T jsonToObject(String s, TypeReference<T> typeReference) {
-        if (s == null) {
-            return null;
-        }
-        try {
-            assert GenericJacksonUtil.objectMapper != null;
-            return GenericJacksonUtil.objectMapper.readValue(s, typeReference);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            throw new ServerErrorException(9999);
-        }
-    }
+	public static <T> T jsonToObject(String s, Class<T> valueType) {
+		if (s == null) {
+			return null;
+		}
+		try {
+			return GenericJacksonUtil.objectMapper.readValue(s, valueType);
+		}
+		catch (JsonProcessingException e) {
+			e.printStackTrace();
+			throw new ServerErrorException(9999);
+		}
+	}
 
-    public static <T> List<T> jsonToList(String s) {
-        if (s == null) {
-            return null;
-        }
-        try {
-            assert GenericJacksonUtil.objectMapper != null;
-            return GenericJacksonUtil.objectMapper.readValue(s, new TypeReference<List<T>>() {
-            });
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            throw new ServerErrorException(9999);
-        }
-    }
+	public static <T> T jsonToObject(String s, TypeReference<T> typeReference) {
+		if (s == null) {
+			return null;
+		}
+		try {
+			assert GenericJacksonUtil.objectMapper != null;
+			return GenericJacksonUtil.objectMapper.readValue(s, typeReference);
+		}
+		catch (JsonProcessingException e) {
+			e.printStackTrace();
+			throw new ServerErrorException(9999);
+		}
+	}
+
+	public static <T> List<T> jsonToList(String s) {
+		if (s == null) {
+			return null;
+		}
+		try {
+			assert GenericJacksonUtil.objectMapper != null;
+			return GenericJacksonUtil.objectMapper.readValue(s, new TypeReference<List<T>>() {
+			});
+		}
+		catch (JsonProcessingException e) {
+			e.printStackTrace();
+			throw new ServerErrorException(9999);
+		}
+	}
 
 }

@@ -20,9 +20,11 @@ import java.util.Map;
 @Component
 @Getter
 public class CodeMessageConfiguration {
-    private final Map<Integer, String> codeMessage = new HashMap<>();
 
-    public String getMessage(Integer code) {
-        return codeMessage.get(code);
-    }
+	private final Map<Integer, String> codeMessage = new HashMap<>();
+
+	public String getMessage(Integer code) {
+		return codeMessage.get(code);
+	}
+
 }

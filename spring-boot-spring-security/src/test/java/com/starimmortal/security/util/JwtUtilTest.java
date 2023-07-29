@@ -6,11 +6,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class JwtUtilTest {
 
-    @Test
-    void verifyToken() {
-    }
+	@Test
+	void verifyToken() {
+	}
 
-    @Test
-    void generateToken() {
-    }
+	@Test
+	void generateToken() {
+	}
+
 }

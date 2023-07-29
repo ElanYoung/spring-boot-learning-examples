@@ -20,23 +20,25 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @TableName(value = "sys_role")
 public class RoleDO extends BaseEntity {
-    /**
-     * 角色名称
-     */
-    private String name;
 
-    /**
-     * 角色编码
-     */
-    private String code;
+	/**
+	 * 角色名称
+	 */
+	private String name;
 
-    /**
-     * 角色描述
-     */
-    private String description;
+	/**
+	 * 角色编码
+	 */
+	private String code;
 
-    /**
-     * 角色状态（0-正常；1-停用）
-     */
-    private Integer status;
+	/**
+	 * 角色描述
+	 */
+	private String description;
+
+	/**
+	 * 角色状态（0-正常；1-停用）
+	 */
+	private Integer status;
+
 }

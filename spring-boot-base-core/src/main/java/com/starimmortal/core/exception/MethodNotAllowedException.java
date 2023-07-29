@@ -9,34 +9,36 @@ import org.springframework.http.HttpStatus;
  * @author william@StarImmortal
  * @date 2022/07/24
  */
-public class MethodNotAllowedException extends HttpException{
-    /**
-     * 错误码
-     */
-    protected int code = Code.METHOD_NOT_ALLOWED.getCode();
+public class MethodNotAllowedException extends HttpException {
 
-    /**
-     * HTTP状态码
-     */
-    protected int httpStatusCode = HttpStatus.METHOD_NOT_ALLOWED.value();
+	/**
+	 * 错误码
+	 */
+	protected int code = Code.METHOD_NOT_ALLOWED.getCode();
 
-    public MethodNotAllowedException() {
-        super(Code.METHOD_NOT_ALLOWED.getCode(), Code.METHOD_NOT_ALLOWED.getDescription());
-        super.defaultMessage = true;
-    }
+	/**
+	 * HTTP状态码
+	 */
+	protected int httpStatusCode = HttpStatus.METHOD_NOT_ALLOWED.value();
 
-    public MethodNotAllowedException(String message) {
-        super(message);
-    }
+	public MethodNotAllowedException() {
+		super(Code.METHOD_NOT_ALLOWED.getCode(), Code.METHOD_NOT_ALLOWED.getDescription());
+		super.defaultMessage = true;
+	}
 
-    public MethodNotAllowedException(int code) {
-        super(code, Code.METHOD_NOT_ALLOWED.getDescription());
-        this.code = code;
-        super.defaultMessage = true;
-    }
+	public MethodNotAllowedException(String message) {
+		super(message);
+	}
 
-    public MethodNotAllowedException(int code, String message) {
-        super(code, message);
-        this.code = code;
-    }
+	public MethodNotAllowedException(int code) {
+		super(code, Code.METHOD_NOT_ALLOWED.getDescription());
+		this.code = code;
+		super.defaultMessage = true;
+	}
+
+	public MethodNotAllowedException(int code, String message) {
+		super(code, message);
+		this.code = code;
+	}
+
 }

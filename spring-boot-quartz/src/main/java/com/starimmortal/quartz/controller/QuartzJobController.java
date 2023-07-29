@@ -24,48 +24,49 @@ import java.util.List;
 @Api(tags = "定时任务")
 public class QuartzJobController {
 
-    @Autowired
-    private QuartzJobService quartzJobService;
+	@Autowired
+	private QuartzJobService quartzJobService;
 
-    @ApiOperation(value = "调度定时任务")
-    @PostMapping("/schedule")
-    public ResponseVO scheduleJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.scheduleJob(dto);
-        return ResponseVO.success();
-    }
+	@ApiOperation(value = "调度定时任务")
+	@PostMapping("/schedule")
+	public ResponseVO scheduleJob(@RequestBody @Validated QuartzJobDTO dto) {
+		quartzJobService.scheduleJob(dto);
+		return ResponseVO.success();
+	}
 
-    @ApiOperation(value = "重新调度定时任务")
-    @PostMapping("/reschedule")
-    public ResponseVO rescheduleJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.rescheduleJob(dto);
-        return ResponseVO.success();
-    }
+	@ApiOperation(value = "重新调度定时任务")
+	@PostMapping("/reschedule")
+	public ResponseVO rescheduleJob(@RequestBody @Validated QuartzJobDTO dto) {
+		quartzJobService.rescheduleJob(dto);
+		return ResponseVO.success();
+	}
 
-    @ApiOperation(value = "暂停定时任务")
-    @PostMapping("/pause")
-    public ResponseVO pauseJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.pauseJob(dto.getJobName(), dto.getJobGroupName());
-        return ResponseVO.success();
-    }
+	@ApiOperation(value = "暂停定时任务")
+	@PostMapping("/pause")
+	public ResponseVO pauseJob(@RequestBody @Validated QuartzJobDTO dto) {
+		quartzJobService.pauseJob(dto.getJobName(), dto.getJobGroupName());
+		return ResponseVO.success();
+	}
 
-    @ApiOperation(value = "恢复定时任务")
-    @PostMapping("/resume")
-    public ResponseVO resumeJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.resumeJob(dto.getJobName(), dto.getJobGroupName());
-        return ResponseVO.success();
-    }
+	@ApiOperation(value = "恢复定时任务")
+	@PostMapping("/resume")
+	public ResponseVO resumeJob(@RequestBody @Validated QuartzJobDTO dto) {
+		quartzJobService.resumeJob(dto.getJobName(), dto.getJobGroupName());
+		return ResponseVO.success();
+	}
 
-    @ApiOperation(value = "删除定时任务")
-    @PostMapping("/delete")
-    public ResponseVO deleteJob(@RequestBody @Validated QuartzJobDTO dto) {
-        quartzJobService.deleteJob(dto.getJobName(), dto.getJobGroupName());
-        return ResponseVO.success();
-    }
+	@ApiOperation(value = "删除定时任务")
+	@PostMapping("/delete")
+	public ResponseVO deleteJob(@RequestBody @Validated QuartzJobDTO dto) {
+		quartzJobService.deleteJob(dto.getJobName(), dto.getJobGroupName());
+		return ResponseVO.success();
+	}
 
-    @ApiOperation(value = "查询所有任务")
-    @GetMapping("/list")
-    public ResponseVO<List<QuartzJobVO>> listJobs() {
-        List<QuartzJobVO> jobs = quartzJobService.listJobs();
-        return ResponseVO.success(jobs);
-    }
+	@ApiOperation(value = "查询所有任务")
+	@GetMapping("/list")
+	public ResponseVO<List<QuartzJobVO>> listJobs() {
+		List<QuartzJobVO> jobs = quartzJobService.listJobs();
+		return ResponseVO.success(jobs);
+	}
+
 }

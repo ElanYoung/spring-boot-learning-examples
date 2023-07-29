@@ -19,14 +19,18 @@ import java.io.IOException;
  */
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.setStatus(HttpStatus.UNAUTHORIZED.value());
-        response.getWriter().println(GenericJacksonUtil.objectToJson(ResponseVO.error(Code.UN_AUTHENTICATION.getCode(), authException.getMessage())));
-        response.getWriter().flush();
-    }
+	@Override
+	public void commence(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException authException) throws IOException {
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.setStatus(HttpStatus.UNAUTHORIZED.value());
+		response.getWriter()
+			.println(GenericJacksonUtil
+				.objectToJson(ResponseVO.error(Code.UN_AUTHENTICATION.getCode(), authException.getMessage())));
+		response.getWriter().flush();
+	}
+
 }

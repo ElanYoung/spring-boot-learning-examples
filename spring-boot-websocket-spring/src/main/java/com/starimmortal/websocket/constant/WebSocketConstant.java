@@ -7,8 +7,10 @@ package com.starimmortal.websocket.constant;
  * @date 2022/09/22
  */
 public class WebSocketConstant {
-    /**
-     * 用户
-     */
-    public static final String USER_KEY = "user";
+
+	/**
+	 * 用户
+	 */
+	public static final String USER_KEY = "user";
+
 }

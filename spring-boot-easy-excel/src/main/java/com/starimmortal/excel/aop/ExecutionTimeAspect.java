@@ -22,18 +22,19 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 public class ExecutionTimeAspect {
 
-    @Around(value = "@annotation(com.starimmortal.excel.annotation.ExecutionTime)")
-    public Object recordExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        // 获取当前请求对象
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        assert attributes != null;
-        HttpServletRequest request = attributes.getRequest();
-        // 记录接口耗时
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
-        Object proceed = joinPoint.proceed();
-        stopWatch.stop();
-        log.info("{} => executed in {}s", request.getRequestURI(), stopWatch.getTotalTimeSeconds());
-        return proceed;
-    }
+	@Around(value = "@annotation(com.starimmortal.excel.annotation.ExecutionTime)")
+	public Object recordExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+		// 获取当前请求对象
+		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+		assert attributes != null;
+		HttpServletRequest request = attributes.getRequest();
+		// 记录接口耗时
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+		Object proceed = joinPoint.proceed();
+		stopWatch.stop();
+		log.info("{} => executed in {}s", request.getRequestURI(), stopWatch.getTotalTimeSeconds());
+		return proceed;
+	}
+
 }

@@ -20,90 +20,92 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResponseVO<T> {
-    /**
-     * 状态码
-     */
-    private Integer code;
 
-    /**
-     * 消息
-     */
-    private String message;
+	/**
+	 * 状态码
+	 */
+	private Integer code;
 
-    /**
-     * 数据对象
-     */
-    private T data;
+	/**
+	 * 消息
+	 */
+	private String message;
 
-    /**
-     * 请求地址
-     */
-    private String request;
+	/**
+	 * 数据对象
+	 */
+	private T data;
 
-    public ResponseVO(T data) {
-        this.code = Code.SUCCESS.getCode();
-        this.message = Code.SUCCESS.getDescription();
-        this.data = data;
-        this.request = RequestUtil.getSimpleRequest();
-    }
+	/**
+	 * 请求地址
+	 */
+	private String request;
 
-    public ResponseVO(int code, String message) {
-        this.code = code;
-        this.message = message;
-        this.request = RequestUtil.getSimpleRequest();
-    }
+	public ResponseVO(T data) {
+		this.code = Code.SUCCESS.getCode();
+		this.message = Code.SUCCESS.getDescription();
+		this.data = data;
+		this.request = RequestUtil.getSimpleRequest();
+	}
 
-    public ResponseVO(int code, String message, HttpStatus httpStatus) {
-        this.code = code;
-        this.message = message;
-        this.request = RequestUtil.getSimpleRequest();
-        ResponseUtil.setCurrentResponseHttpStatus(httpStatus.value());
-    }
+	public ResponseVO(int code, String message) {
+		this.code = code;
+		this.message = message;
+		this.request = RequestUtil.getSimpleRequest();
+	}
 
-    public ResponseVO(int code, String message, T data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
-        this.request = RequestUtil.getSimpleRequest();
-    }
+	public ResponseVO(int code, String message, HttpStatus httpStatus) {
+		this.code = code;
+		this.message = message;
+		this.request = RequestUtil.getSimpleRequest();
+		ResponseUtil.setCurrentResponseHttpStatus(httpStatus.value());
+	}
 
-    public static <T> ResponseVO<T> success() {
-        return new ResponseVO<T>(Code.SUCCESS.getCode(), Code.SUCCESS.getDescription());
-    }
+	public ResponseVO(int code, String message, T data) {
+		this.code = code;
+		this.message = message;
+		this.data = data;
+		this.request = RequestUtil.getSimpleRequest();
+	}
 
-    public static <T> ResponseVO<T> success(String message) {
-        return new ResponseVO<T>(Code.SUCCESS.getCode(), message);
-    }
+	public static <T> ResponseVO<T> success() {
+		return new ResponseVO<T>(Code.SUCCESS.getCode(), Code.SUCCESS.getDescription());
+	}
 
-    public static <T> ResponseVO<T> success(T data) {
-        return new ResponseVO<T>(Code.SUCCESS.getCode(), Code.SUCCESS.getDescription(), data);
-    }
+	public static <T> ResponseVO<T> success(String message) {
+		return new ResponseVO<T>(Code.SUCCESS.getCode(), message);
+	}
 
-    public static <T> ResponseVO<T> success(String message, T data) {
-        return new ResponseVO<T>(Code.SUCCESS.getCode(), message, data);
-    }
+	public static <T> ResponseVO<T> success(T data) {
+		return new ResponseVO<T>(Code.SUCCESS.getCode(), Code.SUCCESS.getDescription(), data);
+	}
 
-    public static <T> ResponseVO<T> error() {
-        return new ResponseVO<T>(Code.FAIL.getCode(), Code.FAIL.getDescription());
-    }
+	public static <T> ResponseVO<T> success(String message, T data) {
+		return new ResponseVO<T>(Code.SUCCESS.getCode(), message, data);
+	}
 
-    public static <T> ResponseVO<T> error(String message) {
-        return new ResponseVO<T>(Code.FAIL.getCode(), message);
-    }
+	public static <T> ResponseVO<T> error() {
+		return new ResponseVO<T>(Code.FAIL.getCode(), Code.FAIL.getDescription());
+	}
 
-    public static <T> ResponseVO<T> error(T data) {
-        return new ResponseVO<T>(Code.FAIL.getCode(), Code.FAIL.getDescription(), data);
-    }
+	public static <T> ResponseVO<T> error(String message) {
+		return new ResponseVO<T>(Code.FAIL.getCode(), message);
+	}
 
-    public static <T> ResponseVO<T> error(int code, String message) {
-        return new ResponseVO<T>(code, message);
-    }
+	public static <T> ResponseVO<T> error(T data) {
+		return new ResponseVO<T>(Code.FAIL.getCode(), Code.FAIL.getDescription(), data);
+	}
 
-    public static <T> ResponseVO<T> error(String message, T data) {
-        return new ResponseVO<T>(Code.FAIL.getCode(), message, data);
-    }
+	public static <T> ResponseVO<T> error(int code, String message) {
+		return new ResponseVO<T>(code, message);
+	}
 
-    public static <T> ResponseVO<T> error(int code, String message, T data) {
-        return new ResponseVO<T>(code, message, data);
-    }
+	public static <T> ResponseVO<T> error(String message, T data) {
+		return new ResponseVO<T>(Code.FAIL.getCode(), message, data);
+	}
+
+	public static <T> ResponseVO<T> error(int code, String message, T data) {
+		return new ResponseVO<T>(code, message, data);
+	}
+
 }

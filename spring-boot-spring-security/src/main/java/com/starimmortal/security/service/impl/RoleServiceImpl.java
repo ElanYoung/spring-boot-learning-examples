@@ -1,6 +1,5 @@
 package com.starimmortal.security.service.impl;
 
-
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.starimmortal.security.mapper.RoleMapper;
 import com.starimmortal.security.pojo.RoleDO;
@@ -18,8 +17,9 @@ import java.util.List;
 @Service
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, RoleDO> implements RoleService {
 
-    @Override
-    public List<Long> listRoleIdsByUserId(Long userId) {
-        return baseMapper.listUserRoleIds(userId);
-    }
+	@Override
+	public List<Long> listRoleIdsByUserId(Long userId) {
+		return baseMapper.listUserRoleIds(userId);
+	}
+
 }

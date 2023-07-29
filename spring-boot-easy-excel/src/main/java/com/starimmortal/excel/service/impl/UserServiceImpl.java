@@ -21,22 +21,23 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements UserService {
 
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public void importUser(List<Object> userExcelList) {
-        if (!userExcelList.isEmpty()) {
-            List<UserDO> userList = convertUserList(userExcelList);
-            int rows = baseMapper.insertBatchSomeColumn(userList);
-            if (rows != userList.size()) {
-                throw new RuntimeException("Some entities were not saved");
-            }
-        }
-    }
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public void importUser(List<Object> userExcelList) {
+		if (!userExcelList.isEmpty()) {
+			List<UserDO> userList = convertUserList(userExcelList);
+			int rows = baseMapper.insertBatchSomeColumn(userList);
+			if (rows != userList.size()) {
+				throw new RuntimeException("Some entities were not saved");
+			}
+		}
+	}
 
-    private List<UserDO> convertUserList(List<Object> batchList) {
-        // 使用 MapStruct 优化
-        return batchList.stream()
-                .map(bean -> UserConverter.INSTANCE.convert((UserExcelDTO) bean))
-                .collect(Collectors.toList());
-    }
+	private List<UserDO> convertUserList(List<Object> batchList) {
+		// 使用 MapStruct 优化
+		return batchList.stream()
+			.map(bean -> UserConverter.INSTANCE.convert((UserExcelDTO) bean))
+			.collect(Collectors.toList());
+	}
+
 }

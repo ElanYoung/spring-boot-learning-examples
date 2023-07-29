@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @author william@StarImmortal
  * @date 2023/03/02
  */
-@Target({ElementType.TYPE, ElementType.METHOD})
+@Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface IgnoreResponseAdvice {
 

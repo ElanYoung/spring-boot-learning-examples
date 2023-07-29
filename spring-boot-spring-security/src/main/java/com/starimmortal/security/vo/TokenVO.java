@@ -14,13 +14,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TokenVO {
-    /**
-     * 访问令牌
-     */
-    private String accessToken;
 
-    /**
-     * 刷新令牌
-     */
-    private String refreshToken;
+	/**
+	 * 访问令牌
+	 */
+	private String accessToken;
+
+	/**
+	 * 刷新令牌
+	 */
+	private String refreshToken;
+
 }

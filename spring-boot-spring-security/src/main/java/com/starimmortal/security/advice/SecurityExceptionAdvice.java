@@ -20,21 +20,23 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @Slf4j
 public class SecurityExceptionAdvice extends GlobalExceptionAdvice {
-    /**
-     * Spring Security 用户名或密码错误异常
-     */
-    @ExceptionHandler({BadCredentialsException.class})
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public ResponseVO<?> handleBadCredentialsException(BadCredentialsException exception) {
-        return new ResponseVO<>(Code.UN_AUTHENTICATION.getCode(), exception.getMessage());
-    }
 
-    /**
-     * Spring Security 账户异常（禁用、锁定、过期）
-     */
-    @ExceptionHandler({AccountStatusException.class})
-    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
-    public ResponseVO<?> handleAccountStatusException(AccountStatusException exception) {
-        return new ResponseVO<>(Code.UN_AUTHENTICATION.getCode(), exception.getMessage());
-    }
+	/**
+	 * Spring Security 用户名或密码错误异常
+	 */
+	@ExceptionHandler({ BadCredentialsException.class })
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	public ResponseVO<?> handleBadCredentialsException(BadCredentialsException exception) {
+		return new ResponseVO<>(Code.UN_AUTHENTICATION.getCode(), exception.getMessage());
+	}
+
+	/**
+	 * Spring Security 账户异常（禁用、锁定、过期）
+	 */
+	@ExceptionHandler({ AccountStatusException.class })
+	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+	public ResponseVO<?> handleAccountStatusException(AccountStatusException exception) {
+		return new ResponseVO<>(Code.UN_AUTHENTICATION.getCode(), exception.getMessage());
+	}
+
 }

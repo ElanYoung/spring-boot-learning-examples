@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @PreAuthorize("hasAuthority('sys:user:add')")
-    @GetMapping("/hello")
-    public ResponseVO<String> hello() {
-        return ResponseVO.success("Hello, Spring Security!");
-    }
+	@PreAuthorize("hasAuthority('sys:user:add')")
+	@GetMapping("/hello")
+	public ResponseVO<String> hello() {
+		return ResponseVO.success("Hello, Spring Security!");
+	}
+
 }

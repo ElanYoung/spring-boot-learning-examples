@@ -15,51 +15,53 @@ import java.util.Map;
 @Data
 @ApiModel(value = "定时任务")
 public class QuartzJobDTO {
-    /**
-     * 任务类名
-     */
-    @ApiModelProperty(value = "任务类名")
-    private String jobClassName;
 
-    /**
-     * cron表达式
-     */
-    @ApiModelProperty(value = "cron表达式")
-    private String cron;
+	/**
+	 * 任务类名
+	 */
+	@ApiModelProperty(value = "任务类名")
+	private String jobClassName;
 
-    /**
-     * 定时任务名称
-     */
-    @ApiModelProperty(value = "定时任务名称")
-    private String jobName;
+	/**
+	 * cron表达式
+	 */
+	@ApiModelProperty(value = "cron表达式")
+	private String cron;
 
-    /**
-     * 定时任务分组名称
-     */
-    @ApiModelProperty(value = "定时任务分组名称")
-    private String jobGroupName;
+	/**
+	 * 定时任务名称
+	 */
+	@ApiModelProperty(value = "定时任务名称")
+	private String jobName;
 
-    /**
-     * 触发器名称
-     */
-    @ApiModelProperty(value = "触发器名称")
-    private String triggerName;
+	/**
+	 * 定时任务分组名称
+	 */
+	@ApiModelProperty(value = "定时任务分组名称")
+	private String jobGroupName;
 
-    /**
-     * 触发器分组名称
-     */
-    @ApiModelProperty(value = "触发器分组名称")
-    private String triggerGroupName;
+	/**
+	 * 触发器名称
+	 */
+	@ApiModelProperty(value = "触发器名称")
+	private String triggerName;
 
-    /**
-     * 任务描述
-     */
-    @ApiModelProperty(value = "任务描述")
-    private String description;
+	/**
+	 * 触发器分组名称
+	 */
+	@ApiModelProperty(value = "触发器分组名称")
+	private String triggerGroupName;
 
-    /**
-     * 任务参数
-     */
-    @ApiModelProperty(value = "任务参数")
-    private Map<String, Object> params;
+	/**
+	 * 任务描述
+	 */
+	@ApiModelProperty(value = "任务描述")
+	private String description;
+
+	/**
+	 * 任务参数
+	 */
+	@ApiModelProperty(value = "任务参数")
+	private Map<String, Object> params;
+
 }

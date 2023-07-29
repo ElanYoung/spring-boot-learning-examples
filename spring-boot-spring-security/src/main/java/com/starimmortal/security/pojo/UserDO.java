@@ -21,44 +21,46 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @TableName(value = "sys_user")
 public class UserDO extends BaseEntity {
-    /**
-     * 用户名
-     */
-    private String username;
 
-    /**
-     * 昵称
-     */
-    private String nickname;
+	/**
+	 * 用户名
+	 */
+	private String username;
 
-    /**
-     * 密码
-     */
-    @JsonIgnore
-    private String password;
+	/**
+	 * 昵称
+	 */
+	private String nickname;
 
-    /**
-     * 邮箱
-     */
-    private String email;
+	/**
+	 * 密码
+	 */
+	@JsonIgnore
+	private String password;
 
-    /**
-     * 手机号
-     */
-    private String phone;
+	/**
+	 * 邮箱
+	 */
+	private String email;
 
-    /**
-     * 用户性别（0-男；1-女；2-未知）
-     */
-    private Integer gender;
+	/**
+	 * 手机号
+	 */
+	private String phone;
 
-    /**
-     * 头像
-     */
-    private String avatar;
+	/**
+	 * 用户性别（0-男；1-女；2-未知）
+	 */
+	private Integer gender;
 
-    /**
-     * 账号状态（0-正常；1-停用）
-     */
-    private Integer status;
+	/**
+	 * 头像
+	 */
+	private String avatar;
+
+	/**
+	 * 账号状态（0-正常；1-停用）
+	 */
+	private Integer status;
+
 }

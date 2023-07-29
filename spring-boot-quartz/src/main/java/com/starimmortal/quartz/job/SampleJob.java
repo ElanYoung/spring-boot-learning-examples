@@ -12,8 +12,9 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 @Slf4j
 public class SampleJob extends QuartzJobBean {
 
-    @Override
-    protected void executeInternal(@NonNull JobExecutionContext context) {
-      log.info("A sample job start...");
-    }
+	@Override
+	protected void executeInternal(@NonNull JobExecutionContext context) {
+		log.info("A sample job start...");
+	}
+
 }

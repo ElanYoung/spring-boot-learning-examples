@@ -17,8 +17,9 @@ import java.util.List;
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, MenuDO> implements MenuService {
 
-    @Override
-    public List<MenuDO> listMenusByRoleIds(List<Long> roleIds) {
-        return baseMapper.listMenusByRoleIds(roleIds);
-    }
+	@Override
+	public List<MenuDO> listMenusByRoleIds(List<Long> roleIds) {
+		return baseMapper.listMenusByRoleIds(roleIds);
+	}
+
 }

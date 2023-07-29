@@ -10,68 +10,70 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties("minio")
 public class MinioProperties {
-    /**
-     * 服务地址
-     */
-    private String endpoint;
 
-    /**
-     * 文件预览地址
-     */
-    private String preview;
+	/**
+	 * 服务地址
+	 */
+	private String endpoint;
 
-    /**
-     * 存储桶名称
-     */
-    private String bucket;
+	/**
+	 * 文件预览地址
+	 */
+	private String preview;
 
-    /**
-     * 用户名
-     */
-    private String accessKey;
+	/**
+	 * 存储桶名称
+	 */
+	private String bucket;
 
-    /**
-     * 密码
-     */
-    private String secretKey;
+	/**
+	 * 用户名
+	 */
+	private String accessKey;
 
-    public String getEndpoint() {
-        return endpoint;
-    }
+	/**
+	 * 密码
+	 */
+	private String secretKey;
 
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-    }
+	public String getEndpoint() {
+		return endpoint;
+	}
 
-    public String getPreview() {
-        return preview;
-    }
+	public void setEndpoint(String endpoint) {
+		this.endpoint = endpoint;
+	}
 
-    public void setPreview(String preview) {
-        this.preview = preview;
-    }
+	public String getPreview() {
+		return preview;
+	}
 
-    public String getBucket() {
-        return bucket;
-    }
+	public void setPreview(String preview) {
+		this.preview = preview;
+	}
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
-    }
+	public String getBucket() {
+		return bucket;
+	}
 
-    public String getAccessKey() {
-        return accessKey;
-    }
+	public void setBucket(String bucket) {
+		this.bucket = bucket;
+	}
 
-    public void setAccessKey(String accessKey) {
-        this.accessKey = accessKey;
-    }
+	public String getAccessKey() {
+		return accessKey;
+	}
 
-    public String getSecretKey() {
-        return secretKey;
-    }
+	public void setAccessKey(String accessKey) {
+		this.accessKey = accessKey;
+	}
 
-    public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
-    }
+	public String getSecretKey() {
+		return secretKey;
+	}
+
+	public void setSecretKey(String secretKey) {
+		this.secretKey = secretKey;
+	}
+
 }

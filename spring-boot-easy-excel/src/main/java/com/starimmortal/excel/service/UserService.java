@@ -12,10 +12,11 @@ import java.util.List;
  * @date 2023/03/10
  */
 public interface UserService extends IService<UserDO> {
-    /**
-     * 导入用户
-     *
-     * @param userExcelList 用户Excel数据
-     */
-    void importUser(List<Object> userExcelList);
+
+	/**
+	 * 导入用户
+	 * @param userExcelList 用户Excel数据
+	 */
+	void importUser(List<Object> userExcelList);
+
 }

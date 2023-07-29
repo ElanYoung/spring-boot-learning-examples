@@ -15,32 +15,30 @@ import java.util.stream.Stream;
  */
 @Getter
 public enum UserStatusEnum implements IEnum<Integer> {
-    /**
-     * 启用
-     */
-    ENABLE(0, "启用"),
 
-    /**
-     * 停用
-     */
-    DISABLE(1, "停用");
+	/**
+	 * 启用
+	 */
+	ENABLE(0, "启用"),
 
-    @EnumValue
-    private final Integer value;
+	/**
+	 * 停用
+	 */
+	DISABLE(1, "停用");
 
-    @JsonValue
-    private final String description;
+	@EnumValue
+	private final Integer value;
 
-    UserStatusEnum(Integer value, String description) {
-        this.value = value;
-        this.description = description;
-    }
+	@JsonValue
+	private final String description;
 
-    public static UserStatusEnum convert(Integer value) {
-        return Stream.of(UserStatusEnum.values())
-                .filter(bean -> bean.value.equals(value))
-                .findAny()
-                .orElse(null);
-    }
+	UserStatusEnum(Integer value, String description) {
+		this.value = value;
+		this.description = description;
+	}
+
+	public static UserStatusEnum convert(Integer value) {
+		return Stream.of(UserStatusEnum.values()).filter(bean -> bean.value.equals(value)).findAny().orElse(null);
+	}
+
 }
-

@@ -20,19 +20,21 @@ import lombok.NoArgsConstructor;
 @Builder
 @TableName(value = "sys_user_role")
 public class UserRoleDO {
-    /**
-     * 主键
-     */
-    @TableId(type = IdType.AUTO)
-    private Long id;
 
-    /**
-     * 用户编号
-     */
-    private Long userId;
+	/**
+	 * 主键
+	 */
+	@TableId(type = IdType.AUTO)
+	private Long id;
 
-    /**
-     * 角色编号
-     */
-    private Long roleId;
+	/**
+	 * 用户编号
+	 */
+	private Long userId;
+
+	/**
+	 * 角色编号
+	 */
+	private Long roleId;
+
 }

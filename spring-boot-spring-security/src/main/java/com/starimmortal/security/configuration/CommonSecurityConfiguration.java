@@ -19,62 +19,60 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 public class CommonSecurityConfiguration {
-    /**
-     * 强散列哈希加密实现
-     */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 
-    /**
-     * 认证管理器
-     *
-     * @param authenticationConfiguration AuthenticationConfiguration
-     * @return AuthenticationManager
-     */
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
+	/**
+	 * 强散列哈希加密实现
+	 */
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    /**
-     * JWT登录授权过滤器
-     *
-     * @return JwtAuthenticationTokenFilter
-     */
-    @Bean
-    public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter() {
-        return new JwtAuthenticationTokenFilter();
-    }
+	/**
+	 * 认证管理器
+	 * @param authenticationConfiguration AuthenticationConfiguration
+	 * @return AuthenticationManager
+	 */
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+			throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
 
-    /**
-     * 认证失败处理类
-     *
-     * @return RestAuthenticationEntryPoint
-     */
-    @Bean
-    public RestAuthenticationEntryPoint restAuthenticationEntryPoint() {
-        return new RestAuthenticationEntryPoint();
-    }
+	/**
+	 * JWT登录授权过滤器
+	 * @return JwtAuthenticationTokenFilter
+	 */
+	@Bean
+	public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter() {
+		return new JwtAuthenticationTokenFilter();
+	}
 
-    /**
-     * 自定义无权访问处理类
-     *
-     * @return RestAccessDeniedHandler
-     */
-    @Bean
-    public RestAccessDeniedHandler restAccessDeniedHandler() {
-        return new RestAccessDeniedHandler();
-    }
+	/**
+	 * 认证失败处理类
+	 * @return RestAuthenticationEntryPoint
+	 */
+	@Bean
+	public RestAuthenticationEntryPoint restAuthenticationEntryPoint() {
+		return new RestAuthenticationEntryPoint();
+	}
 
-    /**
-     * 退出登录成功处理器
-     *
-     * @return LogoutSuccessHandler
-     */
-    @Bean
-    public LogoutSuccessHandler logoutSuccessHandler() {
-        return new LogoutSuccessHandler();
-    }
+	/**
+	 * 自定义无权访问处理类
+	 * @return RestAccessDeniedHandler
+	 */
+	@Bean
+	public RestAccessDeniedHandler restAccessDeniedHandler() {
+		return new RestAccessDeniedHandler();
+	}
+
+	/**
+	 * 退出登录成功处理器
+	 * @return LogoutSuccessHandler
+	 */
+	@Bean
+	public LogoutSuccessHandler logoutSuccessHandler() {
+		return new LogoutSuccessHandler();
+	}
+
 }

@@ -17,17 +17,20 @@ import java.io.IOException;
  * @author william@StarImmortal
  * @date 2023/05/23
  */
-public class LogoutSuccessHandler implements org.springframework.security.web.authentication.logout.LogoutSuccessHandler {
+public class LogoutSuccessHandler
+		implements org.springframework.security.web.authentication.logout.LogoutSuccessHandler {
 
-    @Override
-    public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        SecurityContextHolder.clearContext();
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.setStatus(HttpStatus.OK.value());
-        response.getWriter().println(GenericJacksonUtil.objectToJson(ResponseVO.success()));
-        response.getWriter().flush();
-    }
+	@Override
+	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+			throws IOException, ServletException {
+		SecurityContextHolder.clearContext();
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.setStatus(HttpStatus.OK.value());
+		response.getWriter().println(GenericJacksonUtil.objectToJson(ResponseVO.success()));
+		response.getWriter().flush();
+	}
+
 }

@@ -32,51 +32,51 @@ import java.util.List;
 @Api(tags = "订单模块")
 public class OrderController {
 
-    @ApiOperation(value = "导出订单")
-    @GetMapping("/export")
-    public void exportOrder(HttpServletResponse response) {
-        List<OrderDO> orderList = getOrderList();
-        // 平铺订单数据
-        List<OrderExcelDTO> exportData = convertOrderBean(orderList);
-        String fileName = "订单列表" + StringConstant.SNAKE_SEPARATOR + DateUtil.getCurrentDay(DateUtil.TIME_WITH_UNDERLINE);
-        ExcelUtil.exportExcel(response, fileName, "订单列表", OrderExcelDTO.class, exportData, true, true);
-    }
+	@ApiOperation(value = "导出订单")
+	@GetMapping("/export")
+	public void exportOrder(HttpServletResponse response) {
+		List<OrderDO> orderList = getOrderList();
+		// 平铺订单数据
+		List<OrderExcelDTO> exportData = convertOrderBean(orderList);
+		String fileName = "订单列表" + StringConstant.SNAKE_SEPARATOR
+				+ DateUtil.getCurrentDay(DateUtil.TIME_WITH_UNDERLINE);
+		ExcelUtil.exportExcel(response, fileName, "订单列表", OrderExcelDTO.class, exportData, true, true);
+	}
 
-    /**
-     * 获取订单列表数据
-     *
-     * @return 订单列表数据
-     */
-    private List<OrderDO> getOrderList() {
-        List<OrderDO> orderList = JsonUtil.readJsonArrayFile("mock/orders.json", OrderDO.class);
-        List<ProductDO> productList = JsonUtil.readJsonArrayFile("mock/products.json", ProductDO.class);
-        List<UserDO> userList = JsonUtil.readJsonArrayFile("mock/users.json", UserDO.class);
-        for (int i = 0; i < orderList.size(); i++) {
-            OrderDO order = orderList.get(i);
-            order.setUser(userList.get(i));
-            order.setProductList(productList);
-        }
-        return orderList;
-    }
+	/**
+	 * 获取订单列表数据
+	 * @return 订单列表数据
+	 */
+	private List<OrderDO> getOrderList() {
+		List<OrderDO> orderList = JsonUtil.readJsonArrayFile("mock/orders.json", OrderDO.class);
+		List<ProductDO> productList = JsonUtil.readJsonArrayFile("mock/products.json", ProductDO.class);
+		List<UserDO> userList = JsonUtil.readJsonArrayFile("mock/users.json", UserDO.class);
+		for (int i = 0; i < orderList.size(); i++) {
+			OrderDO order = orderList.get(i);
+			order.setUser(userList.get(i));
+			order.setProductList(productList);
+		}
+		return orderList;
+	}
 
-    /**
-     * 进行订单数据转换与平铺（DO -> BO）
-     *
-     * @param orderList 原始订单数据
-     * @return 转换后订单数据
-     */
-    private List<OrderExcelDTO> convertOrderBean(List<OrderDO> orderList) {
-        // TODO 使用 MapStruct 优化
-        List<OrderExcelDTO> result = new ArrayList<>();
-        orderList.forEach(order -> {
-            List<ProductDO> productList = order.getProductList();
-            productList.forEach(product -> {
-                OrderExcelDTO orderData = new OrderExcelDTO();
-                BeanUtils.copyProperties(product, orderData);
-                BeanUtils.copyProperties(order, orderData);
-                result.add(orderData);
-            });
-        });
-        return result;
-    }
+	/**
+	 * 进行订单数据转换与平铺（DO -> BO）
+	 * @param orderList 原始订单数据
+	 * @return 转换后订单数据
+	 */
+	private List<OrderExcelDTO> convertOrderBean(List<OrderDO> orderList) {
+		// TODO 使用 MapStruct 优化
+		List<OrderExcelDTO> result = new ArrayList<>();
+		orderList.forEach(order -> {
+			List<ProductDO> productList = order.getProductList();
+			productList.forEach(product -> {
+				OrderExcelDTO orderData = new OrderExcelDTO();
+				BeanUtils.copyProperties(product, orderData);
+				BeanUtils.copyProperties(order, orderData);
+				result.add(orderData);
+			});
+		});
+		return result;
+	}
+
 }

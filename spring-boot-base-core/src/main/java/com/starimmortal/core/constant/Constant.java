@@ -7,138 +7,140 @@ package com.starimmortal.core.constant;
  * @date 2021/11/05
  */
 public class Constant {
-    /**
-     * UTF-8 字符集
-     */
-    public static final String UTF8 = "UTF-8";
 
-    /**
-     * GBK 字符集
-     */
-    public static final String GBK = "GBK";
+	/**
+	 * UTF-8 字符集
+	 */
+	public static final String UTF8 = "UTF-8";
 
-    /**
-     * http请求
-     */
-    public static final String HTTP = "http://";
+	/**
+	 * GBK 字符集
+	 */
+	public static final String GBK = "GBK";
 
-    /**
-     * https请求
-     */
-    public static final String HTTPS = "https://";
+	/**
+	 * http请求
+	 */
+	public static final String HTTP = "http://";
 
-    /**
-     * 通用成功标识
-     */
-    public static final String SUCCESS = "0";
+	/**
+	 * https请求
+	 */
+	public static final String HTTPS = "https://";
 
-    /**
-     * 通用失败标识
-     */
-    public static final String FAIL = "1";
+	/**
+	 * 通用成功标识
+	 */
+	public static final String SUCCESS = "0";
 
-    /**
-     * 登录成功
-     */
-    public static final String LOGIN_SUCCESS = "Success";
+	/**
+	 * 通用失败标识
+	 */
+	public static final String FAIL = "1";
 
-    /**
-     * 注销
-     */
-    public static final String LOGOUT = "Logout";
+	/**
+	 * 登录成功
+	 */
+	public static final String LOGIN_SUCCESS = "Success";
 
-    /**
-     * 注册
-     */
-    public static final String REGISTER = "Register";
+	/**
+	 * 注销
+	 */
+	public static final String LOGOUT = "Logout";
 
-    /**
-     * 登录失败
-     */
-    public static final String LOGIN_FAIL = "Error";
+	/**
+	 * 注册
+	 */
+	public static final String REGISTER = "Register";
 
-    /**
-     * 验证码有效期（分钟）
-     */
-    public static final Integer CAPTCHA_EXPIRATION_MINUTES = 2;
+	/**
+	 * 登录失败
+	 */
+	public static final String LOGIN_FAIL = "Error";
 
-    /**
-     * 验证码有效期（秒）
-     */
-    public static final Integer CAPTCHA_EXPIRATION_SECONDS = 300;
+	/**
+	 * 验证码有效期（分钟）
+	 */
+	public static final Integer CAPTCHA_EXPIRATION_MINUTES = 2;
 
-    /**
-     * 请求头
-     */
-    public static final String HEADER = "header";
+	/**
+	 * 验证码有效期（秒）
+	 */
+	public static final Integer CAPTCHA_EXPIRATION_SECONDS = 300;
 
-    /**
-     * 令牌
-     */
-    public static final String TOKEN = "token";
+	/**
+	 * 请求头
+	 */
+	public static final String HEADER = "header";
 
-    /**
-     * 认证头
-     */
-    public static final String AUTHORIZATION_HEADER = "Authorization";
+	/**
+	 * 令牌
+	 */
+	public static final String TOKEN = "token";
 
-    /**
-     * 令牌前缀
-     */
-    public static final String TOKEN_PREFIX = "Bearer ";
+	/**
+	 * 认证头
+	 */
+	public static final String AUTHORIZATION_HEADER = "Authorization";
 
-    /**
-     * 用户ID
-     */
-    public static final String JWT_USER_ID = "uid";
+	/**
+	 * 令牌前缀
+	 */
+	public static final String TOKEN_PREFIX = "Bearer ";
 
-    /**
-     * 用户名
-     */
-    public static final String JWT_USERNAME = "username";
+	/**
+	 * 用户ID
+	 */
+	public static final String JWT_USER_ID = "uid";
 
-    /**
-     * 用户权限
-     */
-    public static final String JWT_USER_AUTHORITIES = "authorities";
+	/**
+	 * 用户名
+	 */
+	public static final String JWT_USERNAME = "username";
 
-    /**
-     * 令牌颁布时间
-     */
-    public static final String JWT_ISSUED = "issued";
+	/**
+	 * 用户权限
+	 */
+	public static final String JWT_USER_AUTHORITIES = "authorities";
 
-    /**
-     * 令牌过期时间
-     */
-    public static final String JWT_EXPIRES = "expires";
+	/**
+	 * 令牌颁布时间
+	 */
+	public static final String JWT_ISSUED = "issued";
 
-    /**
-     * 用户头像上传路径
-     */
-    public static final String USER_AVATAR_PATH = "avatar";
+	/**
+	 * 令牌过期时间
+	 */
+	public static final String JWT_EXPIRES = "expires";
 
-    /**
-     * 省
-     */
-    public static final String PROVINCE = "province";
+	/**
+	 * 用户头像上传路径
+	 */
+	public static final String USER_AVATAR_PATH = "avatar";
 
-    /**
-     * 市
-     */
-    public static final String CITY = "city";
+	/**
+	 * 省
+	 */
+	public static final String PROVINCE = "province";
 
-    /**
-     * 区
-     */
-    public static final String COUNTY = "county";
+	/**
+	 * 市
+	 */
+	public static final String CITY = "city";
 
-    /**
-     * 城镇
-     */
-    public static final String TOWN = "town";
+	/**
+	 * 区
+	 */
+	public static final String COUNTY = "county";
 
-    /**
-     * 乡村
-     */
-    public static final String VILLAGE = "village";
+	/**
+	 * 城镇
+	 */
+	public static final String TOWN = "town";
+
+	/**
+	 * 乡村
+	 */
+	public static final String VILLAGE = "village";
+
 }

@@ -13,36 +13,36 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 @Slf4j
 public class SecurityUtil {
-    /**
-     * 获取Authentication
-     */
-    public static Authentication getAuthentication() {
-        return SecurityContextHolder.getContext().getAuthentication();
-    }
 
-    /**
-     * 获取当前登录用户
-     *
-     * @return 当前登录用户
-     */
-    public static LoginUser getLoginUser() {
-        Authentication authentication = getAuthentication();
-        if (authentication == null) {
-            log.error("no authentication in security context found");
-            throw new RuntimeException("no authentication in security context found");
-        }
-        return getLoginUser(authentication);
-    }
+	/**
+	 * 获取Authentication
+	 */
+	public static Authentication getAuthentication() {
+		return SecurityContextHolder.getContext().getAuthentication();
+	}
 
-    /**
-     * 获取当前登录用户
-     *
-     * @return 当前登录用户
-     */
-    public static LoginUser getLoginUser(Authentication authentication) {
-        if (authentication.getPrincipal() instanceof LoginUser) {
-            return (LoginUser) authentication.getPrincipal();
-        }
-        return null;
-    }
+	/**
+	 * 获取当前登录用户
+	 * @return 当前登录用户
+	 */
+	public static LoginUser getLoginUser() {
+		Authentication authentication = getAuthentication();
+		if (authentication == null) {
+			log.error("no authentication in security context found");
+			throw new RuntimeException("no authentication in security context found");
+		}
+		return getLoginUser(authentication);
+	}
+
+	/**
+	 * 获取当前登录用户
+	 * @return 当前登录用户
+	 */
+	public static LoginUser getLoginUser(Authentication authentication) {
+		if (authentication.getPrincipal() instanceof LoginUser) {
+			return (LoginUser) authentication.getPrincipal();
+		}
+		return null;
+	}
+
 }

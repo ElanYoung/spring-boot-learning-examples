@@ -12,8 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TokenVO {
-    /**
-     * 令牌
-     */
-    private String token;
+
+	/**
+	 * 令牌
+	 */
+	private String token;
+
 }

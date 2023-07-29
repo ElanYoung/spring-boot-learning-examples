@@ -20,58 +20,60 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @TableName(value = "sys_menu")
 public class MenuDO extends BaseEntity {
-    /**
-     * 父级菜单ID
-     */
-    private Long parentId;
 
-    /**
-     * 菜单名称
-     */
-    private String name;
+	/**
+	 * 父级菜单ID
+	 */
+	private Long parentId;
 
-    /**
-     * 路由地址
-     */
-    private String path;
+	/**
+	 * 菜单名称
+	 */
+	private String name;
 
-    /**
-     * 权限标识
-     */
-    private String permission;
+	/**
+	 * 路由地址
+	 */
+	private String path;
 
-    /**
-     * 菜单图标
-     */
-    private String icon;
+	/**
+	 * 权限标识
+	 */
+	private String permission;
 
-    /**
-     * 组件路径
-     */
-    private String component;
+	/**
+	 * 菜单图标
+	 */
+	private String icon;
 
-    /**
-     * 菜单类型（0-菜单；1-按钮）
-     */
-    private Integer type;
+	/**
+	 * 组件路径
+	 */
+	private String component;
 
-    /**
-     * 菜单状态（0-显示；1-隐藏）
-     */
-    private Integer visible;
+	/**
+	 * 菜单类型（0-菜单；1-按钮）
+	 */
+	private Integer type;
 
-    /**
-     * 菜单状态（0-正常；1-停用）
-     */
-    private Integer status;
+	/**
+	 * 菜单状态（0-显示；1-隐藏）
+	 */
+	private Integer visible;
 
-    /**
-     * 缓存页面（0-开启；1- 关闭）
-     */
-    private Integer keepAlive;
+	/**
+	 * 菜单状态（0-正常；1-停用）
+	 */
+	private Integer status;
 
-    /**
-     * 排序值
-     */
-    private Integer sortOrder;
+	/**
+	 * 缓存页面（0-开启；1- 关闭）
+	 */
+	private Integer keepAlive;
+
+	/**
+	 * 排序值
+	 */
+	private Integer sortOrder;
+
 }

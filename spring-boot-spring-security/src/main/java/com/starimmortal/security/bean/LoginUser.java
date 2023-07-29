@@ -34,60 +34,62 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @SuperBuilder
 public class LoginUser extends UserDO implements UserDetails {
-    /**
-     * 菜单集合
-     */
-    private List<MenuDO> menuList;
 
-    /**
-     * 权限集合
-     */
-    @JsonIgnore
-    private List<SimpleGrantedAuthority> authorities;
+	/**
+	 * 菜单集合
+	 */
+	private List<MenuDO> menuList;
 
-    public LoginUser(UserDO user, List<MenuDO> menuList) {
-        BeanUtils.copyProperties(user, this);
-        this.menuList = menuList;
-    }
+	/**
+	 * 权限集合
+	 */
+	@JsonIgnore
+	private List<SimpleGrantedAuthority> authorities;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (Objects.nonNull(authorities)) {
-            return authorities;
-        }
-        return menuList.stream()
-                .filter(menu -> StringUtils.hasText(menu.getPermission()))
-                .map(menu -> new SimpleGrantedAuthority(menu.getPermission()))
-                .collect(Collectors.toList());
-    }
+	public LoginUser(UserDO user, List<MenuDO> menuList) {
+		BeanUtils.copyProperties(user, this);
+		this.menuList = menuList;
+	}
 
-    @Override
-    public String getPassword() {
-        return super.getPassword();
-    }
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		if (Objects.nonNull(authorities)) {
+			return authorities;
+		}
+		return menuList.stream()
+			.filter(menu -> StringUtils.hasText(menu.getPermission()))
+			.map(menu -> new SimpleGrantedAuthority(menu.getPermission()))
+			.collect(Collectors.toList());
+	}
 
-    @Override
-    public String getUsername() {
-        return super.getUsername();
-    }
+	@Override
+	public String getPassword() {
+		return super.getPassword();
+	}
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+	@Override
+	public String getUsername() {
+		return super.getUsername();
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        return super.getStatus().equals(UserStatusEnum.ENABLE.getValue());
-    }
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return super.getStatus().equals(UserStatusEnum.ENABLE.getValue());
+	}
+
 }

@@ -24,34 +24,34 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfiguration implements WebSocketConfigurer {
 
-    @Value("${websocket.intercept:false}")
-    private boolean intercepted;
+	@Value("${websocket.intercept:false}")
+	private boolean intercepted;
 
-    @Bean
-    public DefaultWebSocketHandler defaultWebSocketHandler() {
-        return new DefaultWebSocketHandler();
-    }
+	@Bean
+	public DefaultWebSocketHandler defaultWebSocketHandler() {
+		return new DefaultWebSocketHandler();
+	}
 
-    @Bean
-    public WebSocket webSocket() {
-        return new WebSocketImpl();
-    }
+	@Bean
+	public WebSocket webSocket() {
+		return new WebSocketImpl();
+	}
 
-    @Bean
-    @ConditionalOnProperty(prefix = "websocket", value = "intercept", havingValue = "true")
-    public WebSocketInterceptor webSocketInterceptor() {
-        return new WebSocketInterceptor();
-    }
+	@Bean
+	@ConditionalOnProperty(prefix = "websocket", value = "intercept", havingValue = "true")
+	public WebSocketInterceptor webSocketInterceptor() {
+		return new WebSocketInterceptor();
+	}
 
-    @Override
-    public void registerWebSocketHandlers(@NonNull WebSocketHandlerRegistry registry) {
-        if (intercepted) {
-            registry.addHandler(defaultWebSocketHandler(), "ws/message")
-                    .addInterceptors(webSocketInterceptor())
-                    .setAllowedOrigins("*");
-            return;
-        }
-        registry.addHandler(defaultWebSocketHandler(), "ws/message")
-                .setAllowedOrigins("*");
-    }
+	@Override
+	public void registerWebSocketHandlers(@NonNull WebSocketHandlerRegistry registry) {
+		if (intercepted) {
+			registry.addHandler(defaultWebSocketHandler(), "ws/message")
+				.addInterceptors(webSocketInterceptor())
+				.setAllowedOrigins("*");
+			return;
+		}
+		registry.addHandler(defaultWebSocketHandler(), "ws/message").setAllowedOrigins("*");
+	}
+
 }

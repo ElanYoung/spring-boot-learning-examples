@@ -17,38 +17,40 @@ import java.util.Date;
 @Builder
 @TableName(value = "user")
 public class UserDO extends BaseEntity {
-    /**
-     * 用户名
-     */
-    private String username;
 
-    /**
-     * 密码
-     */
-    private String password;
+	/**
+	 * 用户名
+	 */
+	private String username;
 
-    /**
-     * 昵称
-     */
-    private String nickname;
+	/**
+	 * 密码
+	 */
+	private String password;
 
-    /**
-     * 生日
-     */
-    private Date birthday;
+	/**
+	 * 昵称
+	 */
+	private String nickname;
 
-    /**
-     * 手机号
-     */
-    private String phone;
+	/**
+	 * 生日
+	 */
+	private Date birthday;
 
-    /**
-     * 身高（米）
-     */
-    private Double height;
+	/**
+	 * 手机号
+	 */
+	private String phone;
 
-    /**
-     * 性别
-     */
-    private Integer gender;
+	/**
+	 * 身高（米）
+	 */
+	private Double height;
+
+	/**
+	 * 性别
+	 */
+	private Integer gender;
+
 }

@@ -10,33 +10,35 @@ import org.springframework.http.HttpStatus;
  * @date 2021/09/21
  */
 public class FileExtensionException extends HttpException {
-    /**
-     * 错误码
-     */
-    protected int code = Code.FILE_EXTENSION.getCode();
 
-    /**
-     * HTTP状态码
-     */
-    protected int httpStatusCode = HttpStatus.NOT_ACCEPTABLE.value();
+	/**
+	 * 错误码
+	 */
+	protected int code = Code.FILE_EXTENSION.getCode();
 
-    public FileExtensionException() {
-        super(Code.FILE_EXTENSION.getCode(), Code.FILE_EXTENSION.getDescription());
-        super.defaultMessage = true;
-    }
+	/**
+	 * HTTP状态码
+	 */
+	protected int httpStatusCode = HttpStatus.NOT_ACCEPTABLE.value();
 
-    public FileExtensionException(String message) {
-        super(message);
-    }
+	public FileExtensionException() {
+		super(Code.FILE_EXTENSION.getCode(), Code.FILE_EXTENSION.getDescription());
+		super.defaultMessage = true;
+	}
 
-    public FileExtensionException(int code) {
-        super(code, Code.FILE_EXTENSION.getDescription());
-        this.code = code;
-        super.defaultMessage = true;
-    }
+	public FileExtensionException(String message) {
+		super(message);
+	}
 
-    public FileExtensionException(int code, String message) {
-        super(code, message);
-        this.code = code;
-    }
+	public FileExtensionException(int code) {
+		super(code, Code.FILE_EXTENSION.getDescription());
+		this.code = code;
+		super.defaultMessage = true;
+	}
+
+	public FileExtensionException(int code, String message) {
+		super(code, message);
+		this.code = code;
+	}
+
 }

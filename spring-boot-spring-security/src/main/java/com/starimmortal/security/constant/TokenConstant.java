@@ -6,23 +6,25 @@ package com.starimmortal.security.constant;
  * @author pedro@TaleLin
  */
 public class TokenConstant {
-    /**
-     * 访问令牌
-     */
-    public final static String ACCESS_TYPE = "access";
 
-    /**
-     * 刷新令牌
-     */
-    public final static String REFRESH_TYPE = "refresh";
+	/**
+	 * 访问令牌
+	 */
+	public final static String ACCESS_TYPE = "access";
 
-    /**
-     * JWT唯一身份标识
-     */
-    public final static String PAYLOAD_JWT_ID = "jti";
+	/**
+	 * 刷新令牌
+	 */
+	public final static String REFRESH_TYPE = "refresh";
 
-    /**
-     * JWT过期时间
-     */
-    public final static String PAYLOAD_EXPIRES_AT = "exp";
+	/**
+	 * JWT唯一身份标识
+	 */
+	public final static String PAYLOAD_JWT_ID = "jti";
+
+	/**
+	 * JWT过期时间
+	 */
+	public final static String PAYLOAD_EXPIRES_AT = "exp";
+
 }

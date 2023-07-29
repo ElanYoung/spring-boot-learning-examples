@@ -12,11 +12,12 @@ import java.util.List;
  * @date 2022/12/16
  */
 public interface MenuService extends IService<MenuDO> {
-    /**
-     * 查询角色对应菜单权限集合
-     *
-     * @param roleIds 角色编号列表
-     * @return 菜单权限集合
-     */
-    List<MenuDO> listMenusByRoleIds(List<Long> roleIds);
+
+	/**
+	 * 查询角色对应菜单权限集合
+	 * @param roleIds 角色编号列表
+	 * @return 菜单权限集合
+	 */
+	List<MenuDO> listMenusByRoleIds(List<Long> roleIds);
+
 }
