@@ -1,5 +1,8 @@
+# 主配置文件
+
 server:
-  8080
+  # 服务端口
+  port: 8080
 
 spring:
   datasource:
